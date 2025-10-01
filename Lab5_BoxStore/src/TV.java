@@ -1,7 +1,7 @@
 public class TV extends ElectronicsItem{
     //Variables
-    private String TVType;
-    private String TVResolution;
+    private String tvType;
+    private String tvResolution;
 
     /**
      *
@@ -16,8 +16,10 @@ public class TV extends ElectronicsItem{
      * @param warrantyPeriod
      * @param yearReleased
      */
-    public TV(String TVType, String TVResolution, String itemName, String brand, double price, int quantity, String description, String returnPolicy, String modelNumber, boolean isPortable, int warrantyPeriod, int yearReleased) {
+    public TV(String tvType, String tvResolution, String itemName, String brand, double price, int quantity, String description, String returnPolicy, String modelNumber, boolean isPortable, int warrantyPeriod, int yearReleased) {
         super(itemName, brand, price, quantity, description, returnPolicy, modelNumber, isPortable, warrantyPeriod, yearReleased);
+        this.tvType = tvType;
+        this.tvResolution = tvResolution;
     }
     //Getters
 
@@ -26,7 +28,7 @@ public class TV extends ElectronicsItem{
      * @return String getTVType
      */
     public String getTVType() {
-        return TVType;
+        return tvType;
     }
 
     /**
@@ -34,7 +36,7 @@ public class TV extends ElectronicsItem{
      * @return String getTVResolution
      */
     public String getTVResolution() {
-        return TVResolution;
+        return tvResolution;
     }
     //Setters
 
@@ -43,7 +45,7 @@ public class TV extends ElectronicsItem{
      * @param TVType
      */
     public void setTVType(String TVType) {
-        this.TVType = TVType;
+        this.tvType = TVType;
     }
 
     /**
@@ -51,6 +53,6 @@ public class TV extends ElectronicsItem{
      * @param TVResolution
      */
     public void setTVResolution(String TVResolution) {
-        this.TVResolution = TVResolution;
+        this.tvResolution = TVResolution;
     }
 }

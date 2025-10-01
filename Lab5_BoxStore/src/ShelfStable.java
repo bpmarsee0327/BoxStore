@@ -16,6 +16,7 @@ public class ShelfStable extends FoodItem{
      */
     public ShelfStable(boolean isCanned, String itemName, String brand, double price, int quantity, String description, String returnPolicy, boolean perishable, String expirationDate) {
         super(itemName, brand, price, quantity, description, returnPolicy, perishable, expirationDate);
+        this.isCanned = isCanned;
     }
     //Getters
 

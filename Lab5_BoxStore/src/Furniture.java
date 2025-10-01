@@ -20,6 +20,9 @@ public class Furniture extends HouseholdItem {
      */
     public Furniture(String materialType, boolean requiresAssembly, String outdoorSuitable, String itemName, String brand, double price, int quantity, String description, String returnPolicy, boolean isRoomSpecific) {
         super(itemName, brand, price, quantity, description, returnPolicy, isRoomSpecific);
+        this.materialType = materialType;
+        this.requiresAssembly = requiresAssembly;
+        this.outdoorSuitable = outdoorSuitable;
     }
     //Getters
 
