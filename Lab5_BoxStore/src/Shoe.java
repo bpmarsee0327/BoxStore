@@ -23,17 +23,36 @@ public class Shoe extends ClothingItem{
         this.laced = laced;
     }
     //getters
+
+    /**
+     * to return the shoe's type
+     * @return the shoe's type
+     */
     public String getshoeType(){
         return shoeType;
     }
+
+    /**
+     * to return whether the shoe has laces
+     * @return
+     */
     public boolean getLaced(){
         return laced;
     }
     // setters
 
+    /**
+     * set the shoes type
+     * @param shoeType type of shoe
+     */
     public void setshoeType(String shoeType){
         this.shoeType = shoeType;
     }
+
+    /**
+     * setting lace
+     * @param laced
+     */
     public void setLaced(boolean laced){
         this.laced = laced;
     }
