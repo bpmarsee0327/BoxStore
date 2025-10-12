@@ -5,7 +5,8 @@ public class Phone extends ElectronicsItem{
 
 
     /**
-     *
+     * @param isWaterproof
+     * @param phoneType
      * @param itemName
      * @param brand
      * @param price
@@ -28,7 +29,7 @@ public class Phone extends ElectronicsItem{
      *
      * @return boolean isWaterproof
      */
-    public boolean isWaterproof() {
+    public boolean getIsWaterproof() {
         return isWaterproof;
     }
 
@@ -45,7 +46,7 @@ public class Phone extends ElectronicsItem{
      *
      * @param isWaterproof
      */
-    public void isWaterproof(boolean isWaterproof) {
+    public void setIsWaterproof(boolean isWaterproof) {
         this.isWaterproof = isWaterproof;
     }
 

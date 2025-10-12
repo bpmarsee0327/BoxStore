@@ -24,7 +24,7 @@ public class ShelfStable extends FoodItem{
      *
      * @return String isCanned
      */
-    public boolean isCanned(){
+    public boolean getIsCanned(){
         return isCanned;
     }
     //Setters
@@ -33,7 +33,7 @@ public class ShelfStable extends FoodItem{
      *
      * @param isCanned
      */
-    public void isCanned(boolean isCanned){
+    public void setIsCanned(boolean isCanned){
         this.isCanned = isCanned;
     }
 
