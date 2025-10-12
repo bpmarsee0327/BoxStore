@@ -17,7 +17,7 @@ public class Shirt extends ClothingItem {
      */
     public Shirt(String graphicDesign, String itemName, String brand, double price, int quantity, String description, String returnPolicy, String size, String gender, String color, String material) {
         super(itemName, brand, price, quantity, description, returnPolicy, size, gender, color, material);
-        this.graphicDesign = graphicDesign
+        this.graphicDesign = graphicDesign;
     }
     //getters
 

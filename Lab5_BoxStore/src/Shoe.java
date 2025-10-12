@@ -1,6 +1,7 @@
-public class Shoe extends ClothingItem{
+public class Shoe extends Outerwear{
     /**
      *
+     * @param outerwearType
      * @param itemName
      * @param brand
      * @param price
@@ -11,17 +12,17 @@ public class Shoe extends ClothingItem{
      * @param gender
      * @param color
      * @param material
-     * @param shoeType
-     * @param laced
      */
     private String shoeType;
     private boolean laced;
 
-    public Shoe(String itemName, String brand, double price, int quantity, String description, String returnPolicy, String size, String gender, String color, String material, String shoeType, boolean laced) {
-        super(itemName, brand, price, quantity, description, returnPolicy, size, gender, color, material);
+    public Shoe(String shoeType, boolean laced, String outerwearType, String itemName, String brand, double price, int quantity, String description, String returnPolicy, String size, String gender, String color, String material) {
+        super(outerwearType, itemName, brand, price, quantity, description, returnPolicy, size, gender, color, material);
         this.shoeType = shoeType;
         this.laced = laced;
     }
+
+
     //getters
 
     /**
