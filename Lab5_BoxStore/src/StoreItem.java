@@ -1,3 +1,5 @@
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 public class StoreItem {
 
     // VARIABLES
@@ -133,7 +135,14 @@ public class StoreItem {
      * @return double of the price accounting for tax.
      */
     public double calculatePriceWithTax(){
-        double withTax = price * 1.075; // chose 7.5% as is max in NC w/ local & state sales tax. Will override food later as it is an exception.
-        return withTax;
+        double withTax = getPrice() * 1.075; // 7.5% tax
+        BigDecimal rounded = new BigDecimal(withTax).setScale(2, RoundingMode.HALF_UP);
+        withTax = rounded.doubleValue();
+        return  withTax;
+    }
+
+    @Override
+    public String toString() {
+        return String.format("%s(%s) : $%.2f", itemName, brand, price);
     }
 }

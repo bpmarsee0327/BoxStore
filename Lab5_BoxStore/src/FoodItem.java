@@ -1,3 +1,5 @@
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 public class FoodItem extends StoreItem{
 
     // VARIABLES
@@ -55,9 +57,15 @@ public class FoodItem extends StoreItem{
     }
     // other methods
 
+    /**
+     * To calculate price w/ sales tax
+     * @return double price w/ sales tax
+     */
     @Override
     public double calculatePriceWithTax() {
         double withTax = getPrice() * 1.02; // 2% tax for food
+        BigDecimal rounded = new BigDecimal(withTax).setScale(2, RoundingMode.HALF_UP);
+         withTax = rounded.doubleValue();
         return  withTax;
     }
 }
