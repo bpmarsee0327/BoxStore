@@ -12,7 +12,7 @@ public class CleaningSupply extends HouseholdItem{
      * @param returnPolicy
      * @param isRoomSpecific
      */
-    public CleaningSupply(String scent, String surfaceType, String itemName, String brand, double price, int quantity, String description, String returnPolicy, boolean isRoomSpecific) {
+    public CleaningSupply(String itemName, String brand, double price, int quantity, String description, String returnPolicy, boolean isRoomSpecific,String scent, String surfaceType) {
         super(itemName, brand, price, quantity, description, returnPolicy, isRoomSpecific);
         this.scent = scent;
         this.surfaceType = surfaceType;

@@ -18,7 +18,7 @@ public class Furniture extends HouseholdItem {
      * @param returnPolicy
      * @param isRoomSpecific
      */
-    public Furniture(String materialType, boolean requiresAssembly, String outdoorSuitable, String itemName, String brand, double price, int quantity, String description, String returnPolicy, boolean isRoomSpecific) {
+    public Furniture(String itemName, String brand, double price, int quantity, String description, String returnPolicy, boolean isRoomSpecific,String materialType, boolean requiresAssembly, String outdoorSuitable) {
         super(itemName, brand, price, quantity, description, returnPolicy, isRoomSpecific);
         this.materialType = materialType;
         this.requiresAssembly = requiresAssembly;

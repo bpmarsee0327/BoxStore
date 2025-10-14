@@ -17,7 +17,7 @@ public class Shoe extends Outerwear{
     private boolean laced;
 
     public Shoe(String shoeType, boolean laced, String outerwearType, String itemName, String brand, double price, int quantity, String description, String returnPolicy, String size, String gender, String color, String material) {
-        super(outerwearType, itemName, brand, price, quantity, description, returnPolicy, size, gender, color, material);
+        super(itemName, brand, price, quantity, description, returnPolicy, size, gender, color, material,outerwearType);
         this.shoeType = shoeType;
         this.laced = laced;
     }

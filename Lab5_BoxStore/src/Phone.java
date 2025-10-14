@@ -18,7 +18,7 @@ public class Phone extends ElectronicsItem{
      * @param warrantyPeriod
      * @param yearReleased
      */
-    public Phone(boolean isWaterproof, String phoneType, String itemName, String brand, double price, int quantity, String description, String returnPolicy, String modelNumber, boolean isPortable, int warrantyPeriod, int yearReleased) {
+    public Phone(String itemName, String brand, double price, int quantity, String description, String returnPolicy, String modelNumber, boolean isPortable, int warrantyPeriod, int yearReleased,boolean isWaterproof, String phoneType) {
         super(itemName, brand, price, quantity, description, returnPolicy, modelNumber, isPortable, warrantyPeriod, yearReleased);
         this.isWaterproof = isWaterproof;
         this.phoneType = phoneType;

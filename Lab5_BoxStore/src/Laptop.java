@@ -19,7 +19,7 @@ public class Laptop extends ElectronicsItem{
      * @param screenSize
      * @param operatingSystem
      */
-    public Laptop(double screenSize, String operatingSystem, String itemName, String brand, double price, int quantity, String description, String returnPolicy, String modelNumber, boolean isPortable, int warrantyPeriod, int yearReleased) {
+    public Laptop(String itemName, String brand, double price, int quantity, String description, String returnPolicy, String modelNumber, boolean isPortable, int warrantyPeriod, int yearReleased,double screenSize, String operatingSystem) {
         super(itemName, brand, price, quantity, description, returnPolicy, modelNumber, isPortable, warrantyPeriod, yearReleased);
         this.screenSize = screenSize;
     }

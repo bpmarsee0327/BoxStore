@@ -14,7 +14,7 @@ public class ShelfStable extends FoodItem{
      * @param expirationDate
      * @param isCanned
      */
-    public ShelfStable(boolean isCanned, String itemName, String brand, double price, int quantity, String description, String returnPolicy, boolean perishable, String expirationDate) {
+    public ShelfStable(String itemName, String brand, double price, int quantity, String description, String returnPolicy, boolean perishable, String expirationDate,boolean isCanned) {
         super(itemName, brand, price, quantity, description, returnPolicy, perishable, expirationDate);
         this.isCanned = isCanned;
     }
