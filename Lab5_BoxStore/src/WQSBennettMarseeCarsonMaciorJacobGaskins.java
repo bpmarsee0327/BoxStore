@@ -18,6 +18,9 @@ public class WQSBennettMarseeCarsonMaciorJacobGaskins {
             System.out.println(item);
         }
 
+        /**
+         * Display menu that allows the user to either add to the inventory or sell from the inventory
+         */
         public static void displayMenu(){
             Scanner input = new Scanner(System.in);
 
@@ -42,10 +45,45 @@ public class WQSBennettMarseeCarsonMaciorJacobGaskins {
                         input.close();
                         return;
                     default:
-                        System.out.println("Invalid input. Enter a number between 1 - 3.")
+                        System.out.println("Invalid input.")
                         break;
                 }
             }
+        }
+        /**
+         * Menu that asks the user if they want to add an item to clothing, electronics, food, or household
+         */
+        public static void addInventory(){
+            Scanner input = new Scanner(System.in);
+
+            while (true){
+                System.out.println("\nChoose a department to add items to: ");
+                System.out.println("1. Clothing");
+                System.out.println("2. Electronics");
+                System.out.println("3. Food");
+                System.out.println("4. Household");
+
+                switch (choice){
+                    case 1:
+
+                        break;
+                    case 2:
+
+                        break;
+                    case 3:
+
+                        break;
+                    case 4:
+
+                        break;
+                    default:
+                        System.out.println("Invalid input.")
+                }
+            }
+        }
+        public static void sellItem(){
+            Scanner input = new Scanner(System.in);
+
         }
     }
 }
