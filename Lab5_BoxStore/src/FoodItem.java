@@ -53,4 +53,11 @@ public class FoodItem extends StoreItem{
     public void setExpirationDate(String expirationDate){
         this.expirationDate = expirationDate;
     }
+    // other methods
+
+    @Override
+    public double calculatePriceWithTax() {
+        double withTax = getPrice() * 1.02; // 2% tax for food
+        return  withTax;
+    }
 }

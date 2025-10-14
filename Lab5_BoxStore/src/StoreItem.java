@@ -125,4 +125,15 @@ public class StoreItem {
     public void setReturnPolicy(String returnPolicy){
         this.returnPolicy = returnPolicy;
     }
+
+    //other methods
+
+    /**
+     * To calculate taxed price
+     * @return double of the price accounting for tax.
+     */
+    public double calculatePriceWithTax(){
+        double withTax = price * 1.075; // chose 7.5% as is max in NC w/ local & state sales tax. Will override food later as it is an exception.
+        return withTax;
+    }
 }
