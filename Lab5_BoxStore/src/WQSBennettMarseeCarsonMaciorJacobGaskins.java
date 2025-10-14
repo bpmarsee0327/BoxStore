@@ -6,10 +6,10 @@ public class WQSBennettMarseeCarsonMaciorJacobGaskins {
 
         ArrayList<StoreItem> storeInventory = new ArrayList<>(); // init the inventory of the store
 
-        Fruit mango = new Fruit("Mango","Greenwise",4.00,5,"a mango","N/a",true,"12/31/1999"
-                ,"yellow/orange",true, 5);
-        Vegetable carrot = new Vegetable("Carrot","Bugs", 5, 5, "an avg carrot", "N/a",
-        true, "12/31/1999","orange", true, 2,true);
+        Fruit mango = new Fruit("Mango", "Greenwise", 4.00, 5, "a mango", "N/a", true, "12/31/1999"
+                , "yellow/orange", true, 5);
+        Vegetable carrot = new Vegetable("Carrot", "Bugs", 5, 5, "an avg carrot", "N/a",
+                true, "12/31/1999", "orange", true, 2, true);
         storeInventory.add(mango);
         storeInventory.add(carrot);
 
@@ -17,6 +17,7 @@ public class WQSBennettMarseeCarsonMaciorJacobGaskins {
         for (StoreItem item : storeInventory) {
             System.out.println(item);
         }
+    }
 
         /**
          * Display menu that allows the user to either add to the inventory or sell from the inventory
@@ -45,7 +46,7 @@ public class WQSBennettMarseeCarsonMaciorJacobGaskins {
                         input.close();
                         return;
                     default:
-                        System.out.println("Invalid input.")
+                        System.out.println("Invalid input.");
                         break;
                 }
             }
@@ -63,6 +64,9 @@ public class WQSBennettMarseeCarsonMaciorJacobGaskins {
                 System.out.println("3. Food");
                 System.out.println("4. Household");
 
+                int choice = input.nextInt();
+                input.nextLine();
+
                 switch (choice){
                     case 1:
 
@@ -77,7 +81,7 @@ public class WQSBennettMarseeCarsonMaciorJacobGaskins {
 
                         break;
                     default:
-                        System.out.println("Invalid input.")
+                        System.out.println("Invalid input.");
                 }
             }
         }
@@ -86,4 +90,4 @@ public class WQSBennettMarseeCarsonMaciorJacobGaskins {
 
         }
     }
-}
+
