@@ -17,12 +17,13 @@ public class WQSBennettMarseeCarsonMaciorJacobGaskins {
         for (StoreItem item : storeInventory) {
             System.out.println(item);
         }
+        displayMenu(storeInventory);
     }
 
         /**
          * Display menu that allows the user to either add to the inventory or sell from the inventory
          */
-        public static void displayMenu(){
+        public static void displayMenu(ArrayList<StoreItem> storeInventory){
             Scanner input = new Scanner(System.in);
 
             while (true){
@@ -36,7 +37,7 @@ public class WQSBennettMarseeCarsonMaciorJacobGaskins {
 
                 switch (choice){
                     case 1:
-                        addInventory();
+                        addInventory(storeInventory);
                         break;
                     case 2:
                         sellItem();
@@ -54,7 +55,7 @@ public class WQSBennettMarseeCarsonMaciorJacobGaskins {
         /**
          * Menu that asks the user if they want to add an item to clothing, electronics, food, or household
          */
-        public static void addInventory(){
+        public static void addInventory(ArrayList<StoreItem> storeInventory){
             Scanner input = new Scanner(System.in);
 
             while (true){
@@ -69,15 +70,19 @@ public class WQSBennettMarseeCarsonMaciorJacobGaskins {
 
                 switch (choice){
                     case 1:
+                        itemsinCategory(storeInventory, ClothingItem.class);
 
                         break;
                     case 2:
+                        itemsinCategory(storeInventory, ElectronicsItem.class);
 
                         break;
                     case 3:
+                        itemsinCategory(storeInventory, FoodItem.class);
 
                         break;
                     case 4:
+                        itemsinCategory(storeInventory, HouseholdItem.class);
 
                         break;
                     default:
@@ -88,6 +93,19 @@ public class WQSBennettMarseeCarsonMaciorJacobGaskins {
         public static void sellItem(){
             Scanner input = new Scanner(System.in);
 
+        }
+
+    /**
+     * helper for addInventory to display items within selected category.
+     * @param storeInventory an array of the store's inventory
+     * @param type the class type. the category of item being looked for.
+     */
+    public static void itemsinCategory(ArrayList<StoreItem> storeInventory, Class type){
+            for (StoreItem item : storeInventory){
+                if (type.isInstance(item)) {
+                    System.out.println(item);
+                }
+            }
         }
     }
 
