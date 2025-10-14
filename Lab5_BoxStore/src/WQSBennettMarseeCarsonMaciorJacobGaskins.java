@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class WQSBennettMarseeCarsonMaciorJacobGaskins {
     public static void main(String[] args) {
@@ -15,6 +16,36 @@ public class WQSBennettMarseeCarsonMaciorJacobGaskins {
         System.out.println("Store's inventory:"); // going through each item in the store's inventory.
         for (StoreItem item : storeInventory) {
             System.out.println(item);
+        }
+
+        public static void displayMenu(){
+            Scanner input = new Scanner(System.in);
+
+            while (true){
+                System.out.println("\nWould you like to sell an item or one to the inventory?");
+                System.out.println("1. Add item to inventory");
+                System.out.println("2. Sell item");
+                System.out.println("3. Exit");
+
+                int choice = input.nextInt();
+                input.nextLine();
+
+                switch (choice){
+                    case 1:
+                        addInventory();
+                        break;
+                    case 2:
+                        sellItem();
+                        break;
+                    case 3:
+                        System.out.println("Exiting");
+                        input.close();
+                        return;
+                    default:
+                        System.out.println("Invalid input. Enter a number between 1 - 3.")
+                        break;
+                }
+            }
         }
     }
 }
