@@ -107,5 +107,17 @@ public class WQSBennettMarseeCarsonMaciorJacobGaskins {
                 }
             }
         }
+        public static void addExisting(ArrayList<StoreItem> storeInventory, Class type){
+            Scanner input = new Scanner(System.in);
+            System.out.println("Select if you would like to add an additional item already present.");
+            System.out.println("1. Yes");
+            System.out.println("2. No");
+
+        Scanner input = new Scanner(System.in);
+
+
+
+        }
     }
+
 
