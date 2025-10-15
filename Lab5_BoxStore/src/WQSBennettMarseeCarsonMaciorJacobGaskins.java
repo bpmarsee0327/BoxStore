@@ -18,6 +18,11 @@ public class WQSBennettMarseeCarsonMaciorJacobGaskins {
             System.out.println(item);
         }
         displayMenu(storeInventory);
+
+        //Updated Inventory after adding/selling
+        System.out.println("Updated Inventory");
+        for (StoreItem item : storeInventory) {
+            System.out.println(item);}
     }
 
         /**
@@ -64,6 +69,7 @@ public class WQSBennettMarseeCarsonMaciorJacobGaskins {
                 System.out.println("2. Electronics");
                 System.out.println("3. Food");
                 System.out.println("4. Household");
+                System.out.println("5. Return to menu");
 
                 int choice = input.nextInt();
                 input.nextLine();
@@ -71,20 +77,29 @@ public class WQSBennettMarseeCarsonMaciorJacobGaskins {
                 switch (choice){
                     case 1:
                         itemsinCategory(storeInventory, ClothingItem.class);
+                        addtoInventory(storeInventory, ClothingItem.class);
 
                         break;
                     case 2:
                         itemsinCategory(storeInventory, ElectronicsItem.class);
+                        addtoInventory(storeInventory, ElectronicsItem.class);
 
                         break;
                     case 3:
                         itemsinCategory(storeInventory, FoodItem.class);
+                        addtoInventory(storeInventory, FoodItem.class);
 
                         break;
                     case 4:
                         itemsinCategory(storeInventory, HouseholdItem.class);
+                        addtoInventory(storeInventory, HouseholdItem.class);
 
                         break;
+                    case 5:
+                        System.out.println("Returning");
+
+                        return;
+
                     default:
                         System.out.println("Invalid input.");
                 }
@@ -107,17 +122,40 @@ public class WQSBennettMarseeCarsonMaciorJacobGaskins {
                 }
             }
         }
-        public static void addExisting(ArrayList<StoreItem> storeInventory, Class type){
+
+    /**
+     * To add to preexisting items in the store's inventory.
+     * @param storeInventory the store's inventory.
+     * @param type the category.
+     */
+    public static void addtoInventory(ArrayList<StoreItem> storeInventory, Class type){
             Scanner input = new Scanner(System.in);
-            System.out.println("Select if you would like to add an additional item already present.");
-            System.out.println("1. Yes");
-            System.out.println("2. No");
+            System.out.println("Select if you would like to add an additional item already present or new item.");
+            System.out.println("1. Item already present.");
+            System.out.println("2. Not present");
 
-        Scanner input = new Scanner(System.in);
+            int choice = input.nextInt();
+            input.nextLine();
 
+                if (choice == 1) {
+                    System.out.println("Enter the name of the item that you'd like more of.");
+                    String name = input.nextLine();
+                    boolean found = false;
 
-
+                    for (StoreItem item : storeInventory){
+                        if (item.getItemName().equals(name)){
+                            found = true;
+                            System.out.println("Enter how many more of the item you'd like.");
+                            int moreQuantity = input.nextInt();
+                            int newQuantity = moreQuantity + item.getQuantity();
+                            item.setQuantity(newQuantity);
+                        }
+                        }
+                    if (found == false){
+                        System.out.println("not present");
+                    }
+                    }
+                }
         }
-    }
 
 
