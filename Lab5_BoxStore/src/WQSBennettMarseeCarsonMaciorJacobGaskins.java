@@ -30,9 +30,8 @@ public class WQSBennettMarseeCarsonMaciorJacobGaskins {
          */
         public static void displayMenu(ArrayList<StoreItem> storeInventory){
             Scanner input = new Scanner(System.in);
-            boolean stillAdding = true;
 
-            while (stillAdding){
+            while (true){
                 System.out.println("\nWould you like to sell an item or one to the inventory?");
                 System.out.println("1. Add item to inventory");
                 System.out.println("2. Sell item");
@@ -56,14 +55,8 @@ public class WQSBennettMarseeCarsonMaciorJacobGaskins {
                         System.out.println("Invalid input.");
                         break;
                 }
-                System.out.print("Add more items (Y/N)?");
-                String inp = input.nextLine().trim();
-                if (!inp.equalsIgnoreCase("Y")){
-                    stillAdding = false
-                }
             }
         }
-
         /**
          * Menu that asks the user if they want to add an item to clothing, electronics, food, or household
          */
