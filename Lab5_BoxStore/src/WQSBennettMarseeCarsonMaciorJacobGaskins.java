@@ -131,21 +131,23 @@ public class WQSBennettMarseeCarsonMaciorJacobGaskins {
     public static void addtoInventory(ArrayList<StoreItem> storeInventory, Class type){
             Scanner input = new Scanner(System.in);
             System.out.println("Select if you would like to add an additional item already present or new item.");
-            System.out.println("1. Item already present.");
-            System.out.println("2. Not present");
+            System.out.println("1. Add more of an existing item.");
+            System.out.println("2. Create a new item.");
 
             int choice = input.nextInt();
             input.nextLine();
 
                 if (choice == 1) {
-                    System.out.println("Enter the name of the item that you'd like more of.");
+                    System.out.println("Enter the name of the item that you'd like more of. (Case-Sensitive)");
                     String name = input.nextLine();
                     boolean found = false;
 
                     for (StoreItem item : storeInventory){
                         if (item.getItemName().equals(name)){
-                            found = true;
+                            found = true; // to prevent accidentally notifying as not present when iterating through the rest of the list
                             System.out.println("Enter how many more of the item you'd like.");
+
+                            //getting exists quantity through the accessor, adding to amt requested, then reassigning the attribute through mutator.
                             int moreQuantity = input.nextInt();
                             int newQuantity = moreQuantity + item.getQuantity();
                             item.setQuantity(newQuantity);
@@ -155,7 +157,12 @@ public class WQSBennettMarseeCarsonMaciorJacobGaskins {
                         System.out.println("not present");
                     }
                     }
+//                highlight below + hit Ctrl + /
+//                if (choice == 2 ){
+//                System.out.println("Enter the name of item you would like to add.");
+//                }
+
                 }
-        }
+                }
 
 
