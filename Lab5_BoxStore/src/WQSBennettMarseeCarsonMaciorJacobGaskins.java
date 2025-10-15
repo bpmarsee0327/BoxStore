@@ -163,6 +163,11 @@ public class WQSBennettMarseeCarsonMaciorJacobGaskins {
 //                }
     }
 
+    /**
+     * To display the store's inventory
+     * @param storeInventory the store's inventory
+     * @param message the message you'd like as a header (i.e. header)
+     */
     public static void displayInventory(ArrayList<StoreItem> storeInventory, String message) {
         System.out.println(message);
         for (StoreItem item : storeInventory) {
