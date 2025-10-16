@@ -151,11 +151,11 @@ public class WQSBennettMarseeCarsonMaciorJacobGaskins {
                     int newQuantity = moreQuantity + item.getQuantity();
                     item.setQuantity(newQuantity);
                 }
-                displayInventory(storeInventory,"Updated store inventory");
             }
             if (found == false) {
                 System.out.println("not present");
             }
+            displayInventory(storeInventory,"Updated store inventory");
         }
 //                highlight below + hit Ctrl + /
 //                if (choice == 2 ){
