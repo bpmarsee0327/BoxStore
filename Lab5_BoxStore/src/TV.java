@@ -12,11 +12,10 @@ public class TV extends ElectronicsItem{
      * @param description
      * @param returnPolicy
      * @param modelNumber
-     * @param isPortable
      * @param warrantyPeriod
      * @param yearReleased
      */
-    public TV(String tvType, String tvResolution, String itemName, String brand, double price, int quantity, String description, String returnPolicy, String modelNumber, boolean isPortable, int warrantyPeriod, int yearReleased) {
+    public TV(String itemName, String brand, double price, int quantity, String description, String returnPolicy, String modelNumber, int warrantyPeriod, int yearReleased,String tvType, String tvResolution) {
         super(itemName, brand, price, quantity, description, returnPolicy, modelNumber, warrantyPeriod, yearReleased);
         this.tvType = tvType;
         this.tvResolution = tvResolution;

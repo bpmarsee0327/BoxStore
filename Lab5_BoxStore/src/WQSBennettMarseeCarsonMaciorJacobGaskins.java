@@ -126,7 +126,7 @@ public class WQSBennettMarseeCarsonMaciorJacobGaskins {
      * @param storeInventory the store's inventory.
      * @param type           the category.
      */
-    public static void addtoInventory(ArrayList<StoreItem> storeInventory, Class type,String classSelection) {
+    public static void addtoInventory(ArrayList<StoreItem> storeInventory, Class type, String classSelection) {
         Scanner input = new Scanner(System.in);
         System.out.println("Select if you would like to add an additional item already present or new item.");
         System.out.println("1. Add more of an existing item.");
@@ -154,71 +154,71 @@ public class WQSBennettMarseeCarsonMaciorJacobGaskins {
             if (found == false) {
                 System.out.println("not present");
             }
-            displayInventory(storeInventory,"Updated store inventory");
+            displayInventory(storeInventory, "Updated store inventory");
         }
-        if (choice == 2){
-            if (classSelection.equals("Clothing")){
+        if (choice == 2) {
+            if (classSelection.equals("Clothing")) {
                 Scanner subclass = new Scanner(System.in);
                 System.out.println("Select what subclass of Clothing you would like to create");
                 System.out.println("1. Outerwear");
                 System.out.println("2. Shoe");
                 System.out.println("3. Shirt");
                 int subchoice = input.nextInt();
-                if (subchoice == 1){
+                if (subchoice == 1) {
                     storeInventory.add(createOuterwear());
                 }
-                if (subchoice == 2 ){
+                if (subchoice == 2) {
                     storeInventory.add(createShoe());
                 }
-                if (subchoice == 3 ) {
+                if (subchoice == 3) {
                     storeInventory.add(createShirt());
                 }
             }
-            if (classSelection.equals("Electronics")){
+            if (classSelection.equals("Electronics")) {
                 Scanner subclass = new Scanner(System.in);
                 System.out.println("Select what subclass of Electronics you would like to create");
                 System.out.println("1. Laptop");
                 System.out.println("2. Phone");
                 System.out.println("3. TV");
                 int subchoice = input.nextInt();
-                if (subchoice == 1 ) {
+                if (subchoice == 1) {
                     storeInventory.add(createLaptop());
                 }
-                if (subchoice == 2 ) {
+                if (subchoice == 2) {
                     storeInventory.add(createPhone());
                 }
-                if (subchoice == 3 ) {
-//                    storeInventory.add();
+                if (subchoice == 3) {
+                    storeInventory.add(createTV());
                 }
             }
-            if (classSelection.equals("Food")){
+            if (classSelection.equals("Food")) {
                 Scanner subclass = new Scanner(System.in);
                 System.out.println("Select what subclass of Food you would like to create");
                 System.out.println("1. Shelf stable");
                 System.out.println("2. Fruit");
                 System.out.println("3. Vegetable");
                 int subchoice = input.nextInt();
-                if (subchoice == 1 ) {
+                if (subchoice == 1) {
 //                    storeInventory.add();
                 }
-                if (subchoice == 2 ) {
+                if (subchoice == 2) {
 //                    storeInventory.add();
                 }
-                if (subchoice == 3 ) {
+                if (subchoice == 3) {
 //                    storeInventory.add();
                 }
 
             }
-            if (classSelection.equals("Household")){
+            if (classSelection.equals("Household")) {
                 Scanner subclass = new Scanner(System.in);
                 System.out.println("Select what subclass of Household you would like to create");
                 System.out.println("1. Furniture");
                 System.out.println("2. Cleaning Supply");
                 int subchoice = input.nextInt();
-                if (subchoice == 1 ) {
+                if (subchoice == 1) {
 //                    storeInventory.add();
                 }
-                if (subchoice == 2 ) {
+                if (subchoice == 2) {
 //                    storeInventory.add();
                 }
             }
@@ -227,8 +227,9 @@ public class WQSBennettMarseeCarsonMaciorJacobGaskins {
 
     /**
      * To display the store's inventory
+     *
      * @param storeInventory the store's inventory
-     * @param message the message you'd like as a header (i.e. header)
+     * @param message        the message you'd like as a header (i.e. header)
      */
     public static void displayInventory(ArrayList<StoreItem> storeInventory, String message) {
         System.out.println(message);
@@ -239,9 +240,10 @@ public class WQSBennettMarseeCarsonMaciorJacobGaskins {
 
     /**
      * to create/add new outerwear
+     *
      * @return new outerwear
      */
-    public static Outerwear createOuterwear(){
+    public static Outerwear createOuterwear() {
         Scanner input = new Scanner(System.in);
 
         System.out.println("\n--- Create Outerwear ---");
@@ -286,9 +288,10 @@ public class WQSBennettMarseeCarsonMaciorJacobGaskins {
 
     /**
      * to create/add a new shoe
+     *
      * @return a new shoe
      */
-    public static Shoe createShoe(){
+    public static Shoe createShoe() {
         Scanner input = new Scanner(System.in);
         System.out.println("\n--- Create Shoe ---");
 
@@ -327,15 +330,17 @@ public class WQSBennettMarseeCarsonMaciorJacobGaskins {
         String shoeType = input.nextLine();
 
 
-        Shoe newShoe = new Shoe( itemName,  brand,  price,  quantity,  description,  returnPolicy,  size,  gender,  color,  material,  shoeType);
+        Shoe newShoe = new Shoe(itemName, brand, price, quantity, description, returnPolicy, size, gender, color, material, shoeType);
 
         return newShoe;
     }
+
     /**
      * create/add a new shirt
+     *
      * @return a new shirt
      */
-    public static Shirt createShirt(){
+    public static Shirt createShirt() {
         Scanner input = new Scanner(System.in);
         System.out.println("\n--- Create Shirt ---");
 
@@ -373,15 +378,16 @@ public class WQSBennettMarseeCarsonMaciorJacobGaskins {
         System.out.print("Enter graphic design: ");
         String graphicDesign = input.nextLine();
 
-        Shirt newShirt = new Shirt( itemName,  brand,  price,  quantity,  description,  returnPolicy,  size,  gender,  color,  material,  graphicDesign);
+        Shirt newShirt = new Shirt(itemName, brand, price, quantity, description, returnPolicy, size, gender, color, material, graphicDesign);
         return newShirt;
     }
 
     /**
      * to add/create new laptop.
+     *
      * @return new laptop
      */
-    public static Laptop createLaptop(){
+    public static Laptop createLaptop() {
 
         Scanner input = new Scanner(System.in);
         System.out.println("\n--- Create Laptop ---");
@@ -420,15 +426,16 @@ public class WQSBennettMarseeCarsonMaciorJacobGaskins {
         System.out.print("Enter the operating system: ");
         String operatingSystem = input.nextLine();
 
-        Laptop newLaptop = new Laptop( itemName,  brand,  price,  quantity,  description,  returnPolicy,  modelNumber,  warrantyPeriod,  yearReleased, screenSize,  operatingSystem);
+        Laptop newLaptop = new Laptop(itemName, brand, price, quantity, description, returnPolicy, modelNumber, warrantyPeriod, yearReleased, screenSize, operatingSystem);
         return newLaptop;
     }
 
     /**
      * create/add new phone
+     *
      * @return new phone
      */
-    public static Phone createPhone(){
+    public static Phone createPhone() {
 
         Scanner input = new Scanner(System.in);
         System.out.println("\n--- Create Phone ---");
@@ -464,10 +471,55 @@ public class WQSBennettMarseeCarsonMaciorJacobGaskins {
         System.out.print("Enter the phone type (i.e. Apple/Samsung): ");
         String phoneType = input.nextLine();
 
-        Phone newPhone = new Phone( itemName,  brand,  price,  quantity,  description,  returnPolicy,  modelNumber,  warrantyPeriod,  yearReleased,   phoneType);
+        Phone newPhone = new Phone(itemName, brand, price, quantity, description, returnPolicy, modelNumber, warrantyPeriod, yearReleased, phoneType);
         return newPhone;
     }
 
-}
+    /**
+     * create/add new tv
+     * @return new tv
+     */
+    public static TV createTV() {
 
+        Scanner input = new Scanner(System.in);
+        System.out.println("\n--- Create TV ---");
+
+        System.out.print("Enter item name: ");
+        String itemName = input.nextLine();
+
+        System.out.print("Enter brand: ");
+        String brand = input.nextLine();
+
+        System.out.print("Enter price: ");
+        double price = input.nextDouble();
+
+        System.out.print("Enter quantity: ");
+        int quantity = input.nextInt();
+        input.nextLine();
+
+        System.out.print("Enter description: ");
+        String description = input.nextLine();
+
+        System.out.print("Enter return policy: ");
+        String returnPolicy = input.nextLine();
+
+        System.out.print("Enter model number: ");
+        String modelNumber = input.nextLine();
+
+        System.out.print("Enter warranty period : ");
+        int warrantyPeriod = input.nextInt();
+
+        System.out.print("Enter the year released: "); // end of inheritance from electronics
+        int yearReleased = input.nextInt();
+
+        System.out.print("Enter TV type (i.e. flatscreen, CRT : ");
+        String tvType = input.nextLine();
+
+        System.out.print("Enter TV Resolution (i.e. 1920x1080) : ");
+        String tvResolution = input.nextLine();
+
+        TV newTV = new TV( itemName,  brand,  price,  quantity,  description,  returnPolicy,  modelNumber,  warrantyPeriod,  yearReleased, tvType,  tvResolution);
+        return newTV;
+    }
+}
 
