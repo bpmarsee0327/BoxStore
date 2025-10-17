@@ -6,8 +6,8 @@ public class WQSBennettMarseeCarsonMaciorJacobGaskins {
 
         ArrayList<StoreItem> storeInventory = new ArrayList<>(); // init the inventory of the store
 
-        Fruit mango = new Fruit("Mango", "Greenwise", 4.00, 5, "a mango", "N/a", true, "12/31/1999"
-                , "yellow/orange", true, 5);
+        Fruit mango = new Fruit("Mango", "Greenwise", 4.00, 5, "a mango", "N/a", "12/31/1999", "red"
+                , true, 5);
         Vegetable carrot = new Vegetable("Carrot", "Bugs", 5, 5, "an avg carrot", "N/a",
                 true, "12/31/1999", "orange", true, 2, true);
         storeInventory.add(mango);
@@ -202,7 +202,7 @@ public class WQSBennettMarseeCarsonMaciorJacobGaskins {
                     storeInventory.add(createShelfStable());
                 }
                 if (subchoice == 2) {
-//                    storeInventory.add();
+                    storeInventory.add(createFruit());
                 }
                 if (subchoice == 3) {
 //                    storeInventory.add();
@@ -557,6 +557,50 @@ public class WQSBennettMarseeCarsonMaciorJacobGaskins {
 
         ShelfStable newShelfStable = new ShelfStable( itemName,  brand,  price,  quantity,  description,  returnPolicy,  expirationDate, isCanned);
         return newShelfStable;
+    }
+
+    /**
+     * to add/create new fruit to inventory
+     * @return newFruit
+     */
+    public static Fruit createFruit(){
+        Scanner input = new Scanner(System.in);
+        System.out.println("\n--- Create a fruit ---");
+
+        System.out.print("Enter item name: ");
+        String itemName = input.nextLine();
+
+        System.out.print("Enter brand: ");
+        String brand = input.nextLine();
+
+        System.out.print("Enter price: ");
+        double price = input.nextDouble();
+
+        System.out.print("Enter quantity: ");
+        int quantity = input.nextInt();
+        input.nextLine();
+
+        System.out.print("Enter description: ");
+        String description = input.nextLine();
+
+        System.out.print("Enter return policy: ");
+        String returnPolicy = input.nextLine(); // end of inheritance from storeItem
+
+        System.out.print("Enter the expiration date: ");
+        String expirationDate = input.nextLine(); // end of inheritance from Fooditem
+
+        System.out.print("Enter the color of the fruit: ");
+        String color = input.nextLine();
+
+        System.out.print("Enter in if the fruit is organic (true/false): ");
+        Boolean organic = input.nextBoolean();
+
+        System.out.print("Enter the weight of the fruit: ");
+        double weight = input.nextDouble();
+
+        Fruit newFruit = new Fruit( itemName,  brand,  price,  quantity,  description,  returnPolicy,  expirationDate,  color,  organic,  weight);
+        return newFruit;
+
     }
 
 }
