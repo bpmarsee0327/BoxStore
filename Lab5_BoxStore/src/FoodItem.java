@@ -3,7 +3,6 @@ import java.math.RoundingMode;
 public class FoodItem extends StoreItem{
 
     // VARIABLES
-    private boolean perishable;
     private String expirationDate;
 
     // CONSTRUCTOR
@@ -15,23 +14,15 @@ public class FoodItem extends StoreItem{
      * @param quantity
      * @param description
      * @param returnPolicy
-     * @param perishable
      * @param expirationDate
      */
-    public FoodItem(String itemName, String brand, double price, int quantity, String description, String returnPolicy, boolean perishable, String expirationDate){
+    public FoodItem(String itemName, String brand, double price, int quantity, String description, String returnPolicy, String expirationDate){
         super(itemName, brand, price, quantity, description, returnPolicy);
-        this.perishable = perishable;
         this.expirationDate = expirationDate;
     }
 
     // GETTERS
-    /**
-     *
-     * @return boolean perishable
-     */
-    public boolean getPerishable(){
-        return perishable;
-    }
+
     /**
      *
      * @return String expirationDate
@@ -41,13 +32,7 @@ public class FoodItem extends StoreItem{
     }
 
     // SETTERS
-    /**
-     *
-     * @param perishable
-     */
-    public void setPerishable(boolean perishable){
-        this.perishable = perishable;
-    }
+
     /**
      *
      * @param expirationDate

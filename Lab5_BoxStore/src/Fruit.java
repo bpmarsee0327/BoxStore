@@ -7,7 +7,7 @@ public class Fruit extends FoodItem{
 
     // CONSTRUCTOR
     public Fruit(String itemName, String brand, double price, int quantity, String description, String returnPolicy, boolean perishable, String expirationDate, String color, boolean organic, double weight) {
-        super(itemName, brand, price, quantity, description, returnPolicy, perishable, expirationDate);
+        super(itemName, brand, price, quantity, description, returnPolicy, expirationDate);
         this.color = color;
         this.organic = organic;
         this.weight = weight;
