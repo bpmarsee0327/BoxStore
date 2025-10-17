@@ -68,27 +68,26 @@ public class WQSBennettMarseeCarsonMaciorJacobGaskins {
             System.out.println("5. Return to menu");
 
             int choice = input.nextInt();
-            input.nextLine();
 
             switch (choice) {
                 case 1:
                     itemsinCategory(storeInventory, ClothingItem.class);
-                    addtoInventory(storeInventory, ClothingItem.class);
+                    addtoInventory(storeInventory, ClothingItem.class, "Clothing");
 
                     break;
                 case 2:
                     itemsinCategory(storeInventory, ElectronicsItem.class);
-                    addtoInventory(storeInventory, ElectronicsItem.class);
+                    addtoInventory(storeInventory, ElectronicsItem.class, "Electronics");
 
                     break;
                 case 3:
                     itemsinCategory(storeInventory, FoodItem.class);
-                    addtoInventory(storeInventory, FoodItem.class);
+                    addtoInventory(storeInventory, FoodItem.class, "Food");
 
                     break;
                 case 4:
                     itemsinCategory(storeInventory, HouseholdItem.class);
-                    addtoInventory(storeInventory, HouseholdItem.class);
+                    addtoInventory(storeInventory, HouseholdItem.class, "Household");
 
                     break;
                 case 5:
@@ -127,7 +126,7 @@ public class WQSBennettMarseeCarsonMaciorJacobGaskins {
      * @param storeInventory the store's inventory.
      * @param type           the category.
      */
-    public static void addtoInventory(ArrayList<StoreItem> storeInventory, Class type) {
+    public static void addtoInventory(ArrayList<StoreItem> storeInventory, Class type,String classSelection) {
         Scanner input = new Scanner(System.in);
         System.out.println("Select if you would like to add an additional item already present or new item.");
         System.out.println("1. Add more of an existing item.");
@@ -157,10 +156,47 @@ public class WQSBennettMarseeCarsonMaciorJacobGaskins {
             }
             displayInventory(storeInventory,"Updated store inventory");
         }
-//                highlight below + hit Ctrl + /
-//                if (choice == 2 ){
-//                System.out.println("Enter the name of item you would like to add.");
-//                }
+        if (choice == 2){
+            if (classSelection.equals("Clothing")){
+                Scanner subclass = new Scanner(System.in);
+                System.out.println("Select what subclass of Clothing you would like to create");
+                System.out.println("1. Outerwear");
+                System.out.println("2. Shoe");
+                System.out.println("3. Shirt");
+                int subchoice = input.nextInt();
+                if (subchoice == 1){
+                    storeInventory.add(createOuterwear());
+                }
+
+            }
+            if (classSelection.equals("Electronics")){
+                Scanner subclass = new Scanner(System.in);
+                System.out.println("Select what subclass of Electronics you would like to create");
+                System.out.println("Laptop");
+                System.out.println("Phone");
+                System.out.println("TV");
+                int subchoice = input.nextInt();
+            }
+            if (classSelection.equals("Food")){
+                Scanner subclass = new Scanner(System.in);
+                System.out.println("Select what subclass of Food you would like to create");
+                System.out.println("Shelf stable");
+                System.out.println("Fruit");
+                System.out.println("Vegetable");
+                int subchoice = input.nextInt();
+
+            }
+            if (classSelection.equals("Household")){
+                Scanner subclass = new Scanner(System.in);
+                System.out.println("Select what subclass of Household you would like to create");
+                System.out.println("Furniture");
+                System.out.println("Cleaning Supply");
+                int subchoice = input.nextInt();
+
+            }
+        }
+
+
     }
 
     /**
@@ -173,6 +209,48 @@ public class WQSBennettMarseeCarsonMaciorJacobGaskins {
         for (StoreItem item : storeInventory) {
             System.out.println(item);
         }
+    }
+    public static Outerwear createOuterwear(){
+        Scanner input = new Scanner(System.in);
+
+        System.out.println("\n--- Create Outerwear ---");
+
+        System.out.print("Enter item name: ");
+        String itemName = input.nextLine();
+
+        System.out.print("Enter brand: ");
+        String brand = input.nextLine();
+
+        System.out.print("Enter price: ");
+        double price = input.nextDouble();
+
+        System.out.print("Enter quantity: ");
+        int quantity = input.nextInt();
+        input.nextLine();
+
+        System.out.print("Enter description: ");
+        String description = input.nextLine();
+
+        System.out.print("Enter return policy: ");
+        String returnPolicy = input.nextLine();
+
+        System.out.print("Enter size: ");
+        String size = input.nextLine();
+
+        System.out.print("Enter gender: ");
+        String gender = input.nextLine();
+
+        System.out.print("Enter color: ");
+        String color = input.nextLine();
+
+        System.out.print("Enter material: ");
+        String material = input.nextLine();
+
+        System.out.print("Enter outerwear type (i.e., Jacket, Coat, Hoodie): ");
+        String outerwearType = input.nextLine();
+
+        Outerwear newOuterwear = new Outerwear(outerwearType, itemName, brand, price, quantity, description, returnPolicy, size, gender, color, material);
+        return newOuterwear;
     }
 }
 
