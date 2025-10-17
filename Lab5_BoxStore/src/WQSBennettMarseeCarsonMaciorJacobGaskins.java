@@ -171,7 +171,7 @@ public class WQSBennettMarseeCarsonMaciorJacobGaskins {
                     storeInventory.add(createShoe());
                 }
                 if (subchoice == 3 ) {
-//                    storeInventory.add();
+                    storeInventory.add(createShirt());
                 }
             }
             if (classSelection.equals("Electronics")){
@@ -236,6 +236,11 @@ public class WQSBennettMarseeCarsonMaciorJacobGaskins {
             System.out.println(item);
         }
     }
+
+    /**
+     * to create/add new outerwear
+     * @return new outerwear
+     */
     public static Outerwear createOuterwear(){
         Scanner input = new Scanner(System.in);
 
@@ -278,6 +283,11 @@ public class WQSBennettMarseeCarsonMaciorJacobGaskins {
         Outerwear newOuterwear = new Outerwear(outerwearType, itemName, brand, price, quantity, description, returnPolicy, size, gender, color, material);
         return newOuterwear;
     }
+
+    /**
+     * to create/add a new shoe
+     * @return a new shoe
+     */
     public static Shoe createShoe(){
         Scanner input = new Scanner(System.in);
         System.out.println("\n--- Create Shoe ---");
@@ -316,15 +326,57 @@ public class WQSBennettMarseeCarsonMaciorJacobGaskins {
         System.out.print("Enter shoe type (i.e. sneakers, boots): ");
         String shoeType = input.nextLine();
 
-        System.out.print("Does it have laces? (true/false): ");
-        boolean laced = input.nextBoolean();
-        input.nextLine();
 
         Shoe newShoe = new Shoe( itemName,  brand,  price,  quantity,  description,  returnPolicy,  size,  gender,  color,  material,  shoeType);
 
         return newShoe;
-
     }
+    /**
+     * create/add a new shirt
+     * @return a new shirt
+     */
+    public static Shirt createShirt(){
+        Scanner input = new Scanner(System.in);
+        System.out.println("\n--- Create Shirt ---");
+
+        System.out.print("Enter item name: ");
+        String itemName = input.nextLine();
+
+        System.out.print("Enter brand: ");
+        String brand = input.nextLine();
+
+        System.out.print("Enter price: ");
+        double price = input.nextDouble();
+
+        System.out.print("Enter quantity: ");
+        int quantity = input.nextInt();
+        input.nextLine();
+
+        System.out.print("Enter description: ");
+        String description = input.nextLine();
+
+        System.out.print("Enter return policy: ");
+        String returnPolicy = input.nextLine();
+
+        System.out.print("Enter size: ");
+        String size = input.nextLine();
+
+        System.out.print("Enter gender: ");
+        String gender = input.nextLine();
+
+        System.out.print("Enter color: ");
+        String color = input.nextLine();
+
+        System.out.print("Enter material: ");
+        String material = input.nextLine();
+
+        System.out.print("Enter graphic design: ");
+        String graphicDesign = input.nextLine();
+
+        Shirt newShirt = new Shirt( itemName,  brand,  price,  quantity,  description,  returnPolicy,  size,  gender,  color,  material,  graphicDesign);
+        return newShirt;
+    }
+
 }
 
 
