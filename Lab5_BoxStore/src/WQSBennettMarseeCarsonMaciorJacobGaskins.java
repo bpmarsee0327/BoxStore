@@ -167,7 +167,12 @@ public class WQSBennettMarseeCarsonMaciorJacobGaskins {
                 if (subchoice == 1){
                     storeInventory.add(createOuterwear());
                 }
-
+                if (subchoice == 2 ){
+                    storeInventory.add(createShoe());
+                }
+                if (subchoice == 3 ) {
+//                    storeInventory.add();
+                }
             }
             if (classSelection.equals("Electronics")){
                 Scanner subclass = new Scanner(System.in);
@@ -176,6 +181,15 @@ public class WQSBennettMarseeCarsonMaciorJacobGaskins {
                 System.out.println("Phone");
                 System.out.println("TV");
                 int subchoice = input.nextInt();
+                if (subchoice == 1 ) {
+//                    storeInventory.add();
+                }
+                if (subchoice == 2 ) {
+//                    storeInventory.add();
+                }
+                if (subchoice == 3 ) {
+//                    storeInventory.add();
+                }
             }
             if (classSelection.equals("Food")){
                 Scanner subclass = new Scanner(System.in);
@@ -184,6 +198,15 @@ public class WQSBennettMarseeCarsonMaciorJacobGaskins {
                 System.out.println("Fruit");
                 System.out.println("Vegetable");
                 int subchoice = input.nextInt();
+                if (subchoice == 1 ) {
+//                    storeInventory.add();
+                }
+                if (subchoice == 2 ) {
+//                    storeInventory.add();
+                }
+                if (subchoice == 3 ) {
+//                    storeInventory.add();
+                }
 
             }
             if (classSelection.equals("Household")){
@@ -192,11 +215,14 @@ public class WQSBennettMarseeCarsonMaciorJacobGaskins {
                 System.out.println("Furniture");
                 System.out.println("Cleaning Supply");
                 int subchoice = input.nextInt();
-
+                if (subchoice == 1 ) {
+//                    storeInventory.add();
+                }
+                if (subchoice == 2 ) {
+//                    storeInventory.add();
+                }
             }
         }
-
-
     }
 
     /**
@@ -251,6 +277,53 @@ public class WQSBennettMarseeCarsonMaciorJacobGaskins {
 
         Outerwear newOuterwear = new Outerwear(outerwearType, itemName, brand, price, quantity, description, returnPolicy, size, gender, color, material);
         return newOuterwear;
+    }
+    public static Shoe createShoe(){
+        Scanner input = new Scanner(System.in);
+        System.out.println("\n--- Create Shoe ---");
+
+        System.out.print("Enter item name: ");
+        String itemName = input.nextLine();
+
+        System.out.print("Enter brand: ");
+        String brand = input.nextLine();
+
+        System.out.print("Enter price: ");
+        double price = input.nextDouble();
+
+        System.out.print("Enter quantity: ");
+        int quantity = input.nextInt();
+        input.nextLine();
+
+        System.out.print("Enter description: ");
+        String description = input.nextLine();
+
+        System.out.print("Enter return policy: ");
+        String returnPolicy = input.nextLine();
+
+        System.out.print("Enter size: ");
+        String size = input.nextLine();
+
+        System.out.print("Enter gender: ");
+        String gender = input.nextLine();
+
+        System.out.print("Enter color: ");
+        String color = input.nextLine();
+
+        System.out.print("Enter material: ");
+        String material = input.nextLine();
+
+        System.out.print("Enter shoe type (i.e. sneakers, boots): ");
+        String shoeType = input.nextLine();
+
+        System.out.print("Does it have laces? (true/false): ");
+        boolean laced = input.nextBoolean();
+        input.nextLine();
+
+        Shoe newShoe = new Shoe( itemName,  brand,  price,  quantity,  description,  returnPolicy,  size,  gender,  color,  material,  shoeType);
+
+        return newShoe;
+
     }
 }
 
