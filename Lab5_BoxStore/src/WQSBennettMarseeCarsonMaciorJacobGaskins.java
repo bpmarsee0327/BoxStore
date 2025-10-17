@@ -185,7 +185,7 @@ public class WQSBennettMarseeCarsonMaciorJacobGaskins {
                     storeInventory.add(createLaptop());
                 }
                 if (subchoice == 2 ) {
-//                    storeInventory.add();
+                    storeInventory.add(createPhone());
                 }
                 if (subchoice == 3 ) {
 //                    storeInventory.add();
@@ -384,7 +384,7 @@ public class WQSBennettMarseeCarsonMaciorJacobGaskins {
     public static Laptop createLaptop(){
 
         Scanner input = new Scanner(System.in);
-        System.out.println("\n--- Create Shirt ---");
+        System.out.println("\n--- Create Laptop ---");
 
         System.out.print("Enter item name: ");
         String itemName = input.nextLine();
@@ -411,7 +411,7 @@ public class WQSBennettMarseeCarsonMaciorJacobGaskins {
         System.out.print("Enter warranty period : ");
         int warrantyPeriod = input.nextInt();
 
-        System.out.print("Enter the year released: ");
+        System.out.print("Enter the year released: "); // end of inheritance from electronics
         int yearReleased = input.nextInt();
 
         System.out.print("Enter screensize");
@@ -422,6 +422,50 @@ public class WQSBennettMarseeCarsonMaciorJacobGaskins {
 
         Laptop newLaptop = new Laptop( itemName,  brand,  price,  quantity,  description,  returnPolicy,  modelNumber,  warrantyPeriod,  yearReleased, screenSize,  operatingSystem);
         return newLaptop;
+    }
+
+    /**
+     * create/add new phone
+     * @return new phone
+     */
+    public static Phone createPhone(){
+
+        Scanner input = new Scanner(System.in);
+        System.out.println("\n--- Create Phone ---");
+
+        System.out.print("Enter item name: ");
+        String itemName = input.nextLine();
+
+        System.out.print("Enter brand: ");
+        String brand = input.nextLine();
+
+        System.out.print("Enter price: ");
+        double price = input.nextDouble();
+
+        System.out.print("Enter quantity: ");
+        int quantity = input.nextInt();
+        input.nextLine();
+
+        System.out.print("Enter description: ");
+        String description = input.nextLine();
+
+        System.out.print("Enter return policy: ");
+        String returnPolicy = input.nextLine();
+
+        System.out.print("Enter model number: ");
+        String modelNumber = input.nextLine();
+
+        System.out.print("Enter warranty period : ");
+        int warrantyPeriod = input.nextInt();
+
+        System.out.print("Enter the year released: "); // end of inheritance from electronics
+        int yearReleased = input.nextInt();
+
+        System.out.print("Enter the phone type (i.e. Apple/Samsung): ");
+        String phoneType = input.nextLine();
+
+        Phone newPhone = new Phone( itemName,  brand,  price,  quantity,  description,  returnPolicy,  modelNumber,  warrantyPeriod,  yearReleased,   phoneType);
+        return newPhone;
     }
 
 }

@@ -1,11 +1,9 @@
 public class Phone extends ElectronicsItem{
     //Variables
-    private boolean isWaterproof;
     private String phoneType;
 
 
     /**
-     * @param isWaterproof
      * @param phoneType
      * @param itemName
      * @param brand
@@ -14,24 +12,15 @@ public class Phone extends ElectronicsItem{
      * @param description
      * @param returnPolicy
      * @param modelNumber
-     * @param isPortable
      * @param warrantyPeriod
      * @param yearReleased
      */
-    public Phone(boolean isWaterproof, String phoneType, String itemName, String brand, double price, int quantity, String description, String returnPolicy, String modelNumber, boolean isPortable, int warrantyPeriod, int yearReleased) {
+    public Phone(String itemName, String brand, double price, int quantity, String description, String returnPolicy, String modelNumber, int warrantyPeriod, int yearReleased,  String phoneType) {
         super(itemName, brand, price, quantity, description, returnPolicy, modelNumber, warrantyPeriod, yearReleased);
-        this.isWaterproof = isWaterproof;
         this.phoneType = phoneType;
     }
     //getters
 
-    /**
-     *
-     * @return boolean isWaterproof
-     */
-    public boolean getIsWaterproof() {
-        return isWaterproof;
-    }
 
     /**
      *
@@ -42,13 +31,6 @@ public class Phone extends ElectronicsItem{
     }
     //setters
 
-    /**
-     *
-     * @param isWaterproof
-     */
-    public void setIsWaterproof(boolean isWaterproof) {
-        this.isWaterproof = isWaterproof;
-    }
 
     /**
      *
