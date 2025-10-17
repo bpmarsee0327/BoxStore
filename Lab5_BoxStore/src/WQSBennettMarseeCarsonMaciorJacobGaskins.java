@@ -177,12 +177,12 @@ public class WQSBennettMarseeCarsonMaciorJacobGaskins {
             if (classSelection.equals("Electronics")){
                 Scanner subclass = new Scanner(System.in);
                 System.out.println("Select what subclass of Electronics you would like to create");
-                System.out.println("Laptop");
-                System.out.println("Phone");
-                System.out.println("TV");
+                System.out.println("1. Laptop");
+                System.out.println("2. Phone");
+                System.out.println("3. TV");
                 int subchoice = input.nextInt();
                 if (subchoice == 1 ) {
-//                    storeInventory.add();
+                    storeInventory.add(createLaptop());
                 }
                 if (subchoice == 2 ) {
 //                    storeInventory.add();
@@ -194,9 +194,9 @@ public class WQSBennettMarseeCarsonMaciorJacobGaskins {
             if (classSelection.equals("Food")){
                 Scanner subclass = new Scanner(System.in);
                 System.out.println("Select what subclass of Food you would like to create");
-                System.out.println("Shelf stable");
-                System.out.println("Fruit");
-                System.out.println("Vegetable");
+                System.out.println("1. Shelf stable");
+                System.out.println("2. Fruit");
+                System.out.println("3. Vegetable");
                 int subchoice = input.nextInt();
                 if (subchoice == 1 ) {
 //                    storeInventory.add();
@@ -212,8 +212,8 @@ public class WQSBennettMarseeCarsonMaciorJacobGaskins {
             if (classSelection.equals("Household")){
                 Scanner subclass = new Scanner(System.in);
                 System.out.println("Select what subclass of Household you would like to create");
-                System.out.println("Furniture");
-                System.out.println("Cleaning Supply");
+                System.out.println("1. Furniture");
+                System.out.println("2. Cleaning Supply");
                 int subchoice = input.nextInt();
                 if (subchoice == 1 ) {
 //                    storeInventory.add();
@@ -375,6 +375,53 @@ public class WQSBennettMarseeCarsonMaciorJacobGaskins {
 
         Shirt newShirt = new Shirt( itemName,  brand,  price,  quantity,  description,  returnPolicy,  size,  gender,  color,  material,  graphicDesign);
         return newShirt;
+    }
+
+    /**
+     * to add/create new laptop.
+     * @return new laptop
+     */
+    public static Laptop createLaptop(){
+
+        Scanner input = new Scanner(System.in);
+        System.out.println("\n--- Create Shirt ---");
+
+        System.out.print("Enter item name: ");
+        String itemName = input.nextLine();
+
+        System.out.print("Enter brand: ");
+        String brand = input.nextLine();
+
+        System.out.print("Enter price: ");
+        double price = input.nextDouble();
+
+        System.out.print("Enter quantity: ");
+        int quantity = input.nextInt();
+        input.nextLine();
+
+        System.out.print("Enter description: ");
+        String description = input.nextLine();
+
+        System.out.print("Enter return policy: ");
+        String returnPolicy = input.nextLine();
+
+        System.out.print("Enter model number: ");
+        String modelNumber = input.nextLine();
+
+        System.out.print("Enter warranty period : ");
+        int warrantyPeriod = input.nextInt();
+
+        System.out.print("Enter the year released: ");
+        int yearReleased = input.nextInt();
+
+        System.out.print("Enter screensize");
+        double screenSize = input.nextDouble();
+
+        System.out.print("Enter the operating system: ");
+        String operatingSystem = input.nextLine();
+
+        Laptop newLaptop = new Laptop( itemName,  brand,  price,  quantity,  description,  returnPolicy,  modelNumber,  warrantyPeriod,  yearReleased, screenSize,  operatingSystem);
+        return newLaptop;
     }
 
 }
