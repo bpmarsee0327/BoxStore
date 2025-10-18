@@ -4,6 +4,9 @@ public class FoodItem extends StoreItem{
 
     // VARIABLES
     private String expirationDate;
+    private String color;
+    private boolean organic;
+    private double weight;
 
     // CONSTRUCTOR
     /**
@@ -19,6 +22,11 @@ public class FoodItem extends StoreItem{
     public FoodItem(String itemName, String brand, double price, int quantity, String description, String returnPolicy, String expirationDate){
         super(itemName, brand, price, quantity, description, returnPolicy);
         this.expirationDate = expirationDate;
+        this.color = color;
+        this.organic = organic;
+        this.weight = weight;
+
+
     }
 
     // GETTERS
@@ -30,6 +38,24 @@ public class FoodItem extends StoreItem{
     public String getExpirationDate(){
         return expirationDate;
     }
+
+    /**
+     *
+     * @return String color
+     */
+    public String getColor(){return color;}
+
+    /**
+     *
+     * @return boolean organic
+     */
+    public boolean getOrganic(){return organic;}
+
+    /**
+     *
+     * @return double weight
+     */
+    public double getWeight(){return weight;}
 
     // SETTERS
 
@@ -46,6 +72,25 @@ public class FoodItem extends StoreItem{
      * To calculate price w/ sales tax
      * @return double price w/ sales tax
      */
+    public void setColor (String color){
+        this.color = color;
+    }
+
+    /**
+     *
+     * @param organic boolean
+     */
+    public void setOrganic(boolean organic){
+        this.organic = organic;
+    }
+
+    /**
+     *
+     * @param weight
+     */
+    public void setWeight(double weight){
+        this.weight = weight;
+    }
     @Override
     public double calculatePriceWithTax() {
         double withTax = getPrice() * 1.02; // 2% tax for food
