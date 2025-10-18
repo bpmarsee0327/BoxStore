@@ -13,14 +13,13 @@ public class Laptop extends ElectronicsItem{
      * @param description
      * @param returnPolicy
      * @param modelNumber
-     * @param isPortable
      * @param warrantyPeriod
      * @param yearReleased
      * @param screenSize
      * @param operatingSystem
      */
-    public Laptop(String itemName, String brand, double price, int quantity, String description, String returnPolicy, String modelNumber, boolean isPortable, int warrantyPeriod, int yearReleased,double screenSize, String operatingSystem) {
-        super(itemName, brand, price, quantity, description, returnPolicy, modelNumber, isPortable, warrantyPeriod, yearReleased);
+    public Laptop(String itemName, String brand, double price, int quantity, String description, String returnPolicy, String modelNumber, int warrantyPeriod, int yearReleased,double screenSize, String operatingSystem) {
+        super(itemName, brand, price, quantity, description, returnPolicy, modelNumber, warrantyPeriod, yearReleased);
         this.screenSize = screenSize;
     }
     //Getters

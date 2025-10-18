@@ -14,12 +14,10 @@ public class Shoe extends ClothingItem{
      * @param material
      */
     private String shoeType;
-    private boolean laced;
 
-    public Shoe(String shoeType, boolean laced, String itemName, String brand, double price, int quantity, String description, String returnPolicy, String size, String gender, String color, String material) {
+    public Shoe(String itemName, String brand, double price, int quantity, String description, String returnPolicy, String size, String gender, String color, String material, String shoeType) {
         super(itemName, brand, price, quantity, description, returnPolicy, size, gender, color, material);
         this.shoeType = shoeType;
-        this.laced = laced;
     }
 
 
@@ -37,9 +35,7 @@ public class Shoe extends ClothingItem{
      * to return whether the shoe has laces
      * @return
      */
-    public boolean getLaced(){
-        return laced;
-    }
+
     // setters
 
     /**
@@ -54,8 +50,5 @@ public class Shoe extends ClothingItem{
      * setting lace
      * @param laced
      */
-    public void setLaced(boolean laced){
-        this.laced = laced;
-    }
 
 }

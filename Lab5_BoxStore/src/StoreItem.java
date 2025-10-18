@@ -143,6 +143,6 @@ public class StoreItem {
 
     @Override
     public String toString() {
-        return String.format("%s(%s) : $%.2f", itemName, brand, price);
+        return String.format("%s(%s) : $%.2f : Quantity x %d", itemName, brand, price, quantity);
     }
 }

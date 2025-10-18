@@ -2,7 +2,6 @@ public class ElectronicsItem extends StoreItem{
 
     // VARIABLES
     private String modelNumber;
-    private boolean isPortable;
     private int warrantyPeriod;
     private int yearReleased;
 
@@ -16,15 +15,13 @@ public class ElectronicsItem extends StoreItem{
      * @param description
      * @param returnPolicy
      * @param modelNumber
-     * @param isPortable
      * @param warrantyPeriod
      * @param yearReleased
      */
     public ElectronicsItem(String itemName, String brand, double price, int quantity, String description,
-                           String returnPolicy, String modelNumber, boolean isPortable, int warrantyPeriod, int yearReleased){
+                           String returnPolicy, String modelNumber, int warrantyPeriod, int yearReleased){
         super(itemName, brand, price, quantity, description, returnPolicy);
         this.modelNumber = modelNumber;
-        this.isPortable = isPortable;
         this.warrantyPeriod = warrantyPeriod;
         this.yearReleased = yearReleased;
     }
@@ -36,13 +33,6 @@ public class ElectronicsItem extends StoreItem{
      */
     public String getModelNumber(){
         return modelNumber;
-    }
-    /**
-     *
-     * @return boolean isPortable
-     */
-    public boolean getIsPortable(){
-        return isPortable;
     }
     /**
      *
@@ -66,13 +56,6 @@ public class ElectronicsItem extends StoreItem{
      */
     public void setModelNumber(String modelNumber){
         this.modelNumber = modelNumber;
-    }
-    /**
-     *
-     * @param isPortable
-     */
-    public void setIsPortable(boolean isPortable){
-        this.isPortable = isPortable;
     }
     /**
      *
