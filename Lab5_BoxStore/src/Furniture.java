@@ -2,7 +2,7 @@ public class Furniture extends HouseholdItem {
     //Variables
     private String materialType;
     private boolean requiresAssembly;
-    private String outdoorSuitable;
+    private boolean outdoorSuitable;
 
 
     /**
@@ -18,7 +18,7 @@ public class Furniture extends HouseholdItem {
      * @param returnPolicy
      * @param isRoomSpecific
      */
-    public Furniture(String materialType, boolean requiresAssembly, String outdoorSuitable, String itemName, String brand, double price, int quantity, String description, String returnPolicy, boolean isRoomSpecific) {
+    public Furniture(String itemName, String brand, double price, int quantity, String description, String returnPolicy, boolean isRoomSpecific,String materialType, boolean requiresAssembly, boolean outdoorSuitable) {
         super(itemName, brand, price, quantity, description, returnPolicy, isRoomSpecific);
         this.materialType = materialType;
         this.requiresAssembly = requiresAssembly;
@@ -46,7 +46,7 @@ public class Furniture extends HouseholdItem {
      *
      * @return String getOutdoorSuitable
      */
-    public String getOutdoorSuitable() {
+    public boolean getOutdoorSuitable() {
         return outdoorSuitable;
     }
     //Setters
@@ -71,7 +71,7 @@ public class Furniture extends HouseholdItem {
      *
      * @param outdoorSuitable
      */
-    public void setOutdoorSuitable(String outdoorSuitable) {
+    public void setOutdoorSuitable(boolean outdoorSuitable) {
         this.outdoorSuitable = outdoorSuitable;
     }
 }

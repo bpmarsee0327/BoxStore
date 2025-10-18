@@ -205,7 +205,7 @@ public class WQSBennettMarseeCarsonMaciorJacobGaskins {
                     storeInventory.add(createFruit());
                 }
                 if (subchoice == 3) {
-//                    storeInventory.add();
+                    storeInventory.add(createVegetable());
                 }
 
             }
@@ -216,10 +216,10 @@ public class WQSBennettMarseeCarsonMaciorJacobGaskins {
                 System.out.println("2. Cleaning Supply");
                 int subchoice = input.nextInt();
                 if (subchoice == 1) {
-//                    storeInventory.add();
+                    storeInventory.add(createFurniture());
                 }
                 if (subchoice == 2) {
-//                    storeInventory.add();
+                    storeInventory.add(createCleaningSupply());
                 }
             }
         }
@@ -650,9 +650,88 @@ public class WQSBennettMarseeCarsonMaciorJacobGaskins {
 
         Vegetable newVegetable = new Vegetable( itemName,  brand,  price,  quantity,  description,  returnPolicy,  expirationDate,  color,  organic,  weight,  rootVegetable);
         return newVegetable;
+    }
 
+    /**
+     * create/add new instance of furniture to inv.
+     * @return new piece of furniture
+     */
+    public static Furniture createFurniture(){
+        Scanner input = new Scanner(System.in);
+        System.out.println("\n--- Create a piece of furniture ---");
 
+        System.out.print("Enter item name: ");
+        String itemName = input.nextLine();
 
+        System.out.print("Enter brand: ");
+        String brand = input.nextLine();
+
+        System.out.print("Enter price: ");
+        double price = input.nextDouble();
+
+        System.out.print("Enter quantity: ");
+        int quantity = input.nextInt();
+        input.nextLine();
+
+        System.out.print("Enter description: ");
+        String description = input.nextLine();
+
+        System.out.print("Enter return policy: ");
+        String returnPolicy = input.nextLine(); // end of inheritance from storeItem
+
+        System.out.print("Enter if it's room specific (true/false): ");
+        boolean isRoomSpecific = input.nextBoolean();
+
+        System.out.print("Enter the material type: ");
+        String materialType = input.nextLine();
+
+        System.out.print("Enter if it requires assembly (true/false): ");
+        boolean requiresAssembly = input.nextBoolean();
+
+        System.out.print("Enter if it is suitable for outdoors(true/false): ");
+        boolean outdoorSuitable = input.nextBoolean();
+
+        Furniture newFurniture = new Furniture( itemName,  brand,  price,  quantity,  description,  returnPolicy,  isRoomSpecific, materialType,  requiresAssembly,  outdoorSuitable);
+        return newFurniture;
+    }
+    /**
+     * create/add new instance of cleaning supplies to inv.
+     * @return new cleaning supply
+     */
+    public static CleaningSupply createCleaningSupply(){
+        Scanner input = new Scanner(System.in);
+        System.out.println("\n--- Create an item of cleaning supplies ---");
+
+        System.out.print("Enter item name: ");
+        String itemName = input.nextLine();
+
+        System.out.print("Enter brand: ");
+        String brand = input.nextLine();
+
+        System.out.print("Enter price: ");
+        double price = input.nextDouble();
+
+        System.out.print("Enter quantity: ");
+        int quantity = input.nextInt();
+        input.nextLine();
+
+        System.out.print("Enter description: ");
+        String description = input.nextLine();
+
+        System.out.print("Enter return policy: ");
+        String returnPolicy = input.nextLine(); // end of inheritance from storeItem
+
+        System.out.print("Enter if it's room specific (true/false): ");
+        boolean isRoomSpecific = input.nextBoolean();
+
+        System.out.print("Enter the scent of the product:");
+        String scent = input.nextLine();
+
+        System.out.print("Enter the surface type the product is used for: ");
+        String surfaceType = input.nextLine();
+
+        CleaningSupply newCleaningSupply = new CleaningSupply( itemName,  brand,  price,  quantity,  description,  returnPolicy,  isRoomSpecific, scent,  surfaceType);
+        return  newCleaningSupply;
     }
 
 }
