@@ -13,7 +13,7 @@ public class WQSBennettMarseeCarsonMaciorJacobGaskins {
         ShelfStable penne = new ShelfStable("Penne Pasta", "Raos", 3.99, 4, "penne shaped pasta", "unopened, within 7 days", "10/14/2028", true);
 
 
-        Laptop macbook= new Laptop("Macbook Air", "Apple", 999.99, 3, "lightweight laptop", "within 14 days", "A1234", true, 1, 2024, 13.6, "macOS");
+        Laptop macbook= new Laptop("Macbook Air", "Apple", 999.99, 3, "lightweight laptop", "within 14 days", "A1234", 5, 1, 2024, "macOS");
         TV smart_samsung_tv = new TV("Samsung Smart TV", "Samsung", 599.99, 4, "smart TV", "within 14 days", "B2345", 5, 2024,"flatscreen", "4k");
         Phone I16 = new Phone("iPhone 16 Pro", "Apple", 999.99, 13, "the latest iPhone", "within 14 days", "C3456", 5, 2024, "iphone");
 
@@ -305,7 +305,7 @@ public class WQSBennettMarseeCarsonMaciorJacobGaskins {
         System.out.print("Enter outerwear type (i.e., Jacket, Coat, Hoodie): ");
         String outerwearType = input.nextLine();
 
-        Outerwear newOuterwear = new Outerwear(outerwearType, itemName, brand, price, quantity, description, returnPolicy, size, gender, color, material);
+        Outerwear newOuterwear = new Outerwear(itemName, brand, price, quantity, description, returnPolicy, size, gender, color, material, outerwearType);
         return newOuterwear;
     }
 
