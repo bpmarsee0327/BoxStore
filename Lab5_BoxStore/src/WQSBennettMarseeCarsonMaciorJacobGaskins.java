@@ -6,12 +6,17 @@ public class WQSBennettMarseeCarsonMaciorJacobGaskins {
 
         ArrayList<StoreItem> storeInventory = new ArrayList<>(); // init the inventory of the store
 
-        Fruit mango = new Fruit("Mango", "Greenwise", 4.00, 5, "a mango", "N/a", "12/31/1999", "red"
-                , true, 5, "tree");
-        Vegetable carrot = new Vegetable("Carrot", "Bugs", 5, 5, "an avg carrot", "N/a",
-                "12/31/1999", "orange", true, 2, true);
-        storeInventory.add(mango);
-        storeInventory.add(carrot);
+        storeInventory.add(new ShelfStable("Penne Pasta", "Raos", 3.99, 4, "penne shaped pasta", "unopened, within 7 days", "10/14/2028", false));
+        storeInventory.add(new Fruit("Mango", "Greenwise", 4.00, 5, "tropical fruit", "N/A", "10/31/2025","Yellow", true, 2, "tropical"));
+        storeInventory.add(new Vegetable("Carrot", "Bugs", 2.99, 5, "root vegetable", "N/A","11/10/2025", "orange", true, 2, true));
+        storeInventory.add(new Laptop("Macbook Air", "Apple", 999.99, 3, "lightweight laptop", "within 14 days", "A1234", 1, 2024, 13.6, "macOS"));
+        storeInventory.add(new TV("Samsung Smart TV", "Samsung", 599.99, 4, "smart TV", "within 14 days", "B2345", 1,2024, "flatscreen", "4k"));
+        storeInventory.add(new Phone("iPhone 16 Pro", "Apple", 999.99, 13, "the latest iPhone", "within 14 days", "C3456", 1, 2024,  "cell"));
+        storeInventory.add(new Outerwear("Rain Jacket", "NorthFace", 129.99, 5, "waterproof", "exchanged or returned within 30 days", "L", "Unisex", "Black", "Polyester", "Rain Jacket"));
+        storeInventory.add(new Shoe("Zooms", "Nike", 91.99, 16, "lightweight running shoes", "exchanged or returned within 30 days", "10", "M", "White", "Mesh", "Running"));
+        storeInventory.add(new Shirt("Graphic T Shirt", "American Eagle", 29.99, 20, "t shirt with a graphic on it", "exchanged or returned within 30 days", "L", "F", "Red", "Cotton", "werewolf tipping fedora"));
+        storeInventory.add(new CleaningSupply("Multi Surface Cleaner", "Lysol", 2.99, 25, "cleans and disinfects surfaces", "unused, within 14 days", false, "Lavender", "All"));
+        storeInventory.add(new Furniture("Dresser", "IKEA", 399.99, 2, "wooden dresser", "within 30 days", true, "Wood", false, false));
 
         displayInventory(storeInventory, "Store's init inventory");
         displayMenu(storeInventory);
@@ -165,13 +170,13 @@ public class WQSBennettMarseeCarsonMaciorJacobGaskins {
                 System.out.println("3. Shirt");
                 int subchoice = input.nextInt();
                 if (subchoice == 1) {
-                    storeInventory.add(createOuterwear());
+                    storeInventory.add(Outerwear.createItem());
                 }
                 if (subchoice == 2) {
-                    storeInventory.add(createShoe());
+                    storeInventory.add(Shoe.createItem());
                 }
                 if (subchoice == 3) {
-                    storeInventory.add(createShirt());
+                    storeInventory.add(Shirt.createItem());
                 }
             }
             if (classSelection.equals("Electronics")) {
@@ -182,13 +187,13 @@ public class WQSBennettMarseeCarsonMaciorJacobGaskins {
                 System.out.println("3. TV");
                 int subchoice = input.nextInt();
                 if (subchoice == 1) {
-                    storeInventory.add(createLaptop());
+                    storeInventory.add(Laptop.createItem());
                 }
                 if (subchoice == 2) {
-                    storeInventory.add(createPhone());
+                    storeInventory.add(Phone.createItem());
                 }
                 if (subchoice == 3) {
-                    storeInventory.add(createTV());
+                    storeInventory.add(TV.createItem());
                 }
             }
             if (classSelection.equals("Food")) {
@@ -199,13 +204,13 @@ public class WQSBennettMarseeCarsonMaciorJacobGaskins {
                 System.out.println("3. Vegetable");
                 int subchoice = input.nextInt();
                 if (subchoice == 1) {
-                    storeInventory.add(createShelfStable());
+                    storeInventory.add(ShelfStable.createItem());
                 }
                 if (subchoice == 2) {
-                    storeInventory.add(createFruit());
+                    storeInventory.add(Fruit.createItem());
                 }
                 if (subchoice == 3) {
-                    storeInventory.add(createVegetable());
+                    storeInventory.add(Vegetable.createItem());
                 }
 
             }
@@ -216,10 +221,10 @@ public class WQSBennettMarseeCarsonMaciorJacobGaskins {
                 System.out.println("2. Cleaning Supply");
                 int subchoice = input.nextInt();
                 if (subchoice == 1) {
-                    storeInventory.add(createFurniture());
+                    storeInventory.add(Furniture.createItem());
                 }
                 if (subchoice == 2) {
-                    storeInventory.add(createCleaningSupply());
+                    storeInventory.add(CleaningSupply.createItem());
                 }
             }
         }
@@ -237,502 +242,5 @@ public class WQSBennettMarseeCarsonMaciorJacobGaskins {
             System.out.println(item);
         }
     }
-
-    /**
-     * to create/add new outerwear
-     *
-     * @return new outerwear
-     */
-    public static Outerwear createOuterwear() {
-        Scanner input = new Scanner(System.in);
-
-        System.out.println("\n--- Create Outerwear ---");
-
-        System.out.print("Enter item name: ");
-        String itemName = input.nextLine();
-
-        System.out.print("Enter brand: ");
-        String brand = input.nextLine();
-
-        System.out.print("Enter price: ");
-        double price = input.nextDouble();
-
-        System.out.print("Enter quantity: ");
-        int quantity = input.nextInt();
-        input.nextLine();
-
-        System.out.print("Enter description: ");
-        String description = input.nextLine();
-
-        System.out.print("Enter return policy: ");
-        String returnPolicy = input.nextLine();
-
-        System.out.print("Enter size: ");
-        String size = input.nextLine();
-
-        System.out.print("Enter gender: ");
-        String gender = input.nextLine();
-
-        System.out.print("Enter color: ");
-        String color = input.nextLine();
-
-        System.out.print("Enter material: ");
-        String material = input.nextLine();
-
-        System.out.print("Enter outerwear type (i.e., Jacket, Coat, Hoodie): ");
-        String outerwearType = input.nextLine();
-
-        Outerwear newOuterwear = new Outerwear(outerwearType, itemName, brand, price, quantity, description, returnPolicy, size, gender, color, material);
-        return newOuterwear;
-    }
-
-    /**
-     * to create/add a new shoe
-     *
-     * @return a new shoe
-     */
-    public static Shoe createShoe() {
-        Scanner input = new Scanner(System.in);
-        System.out.println("\n--- Create Shoe ---");
-
-        System.out.print("Enter item name: ");
-        String itemName = input.nextLine();
-
-        System.out.print("Enter brand: ");
-        String brand = input.nextLine();
-
-        System.out.print("Enter price: ");
-        double price = input.nextDouble();
-
-        System.out.print("Enter quantity: ");
-        int quantity = input.nextInt();
-        input.nextLine();
-
-        System.out.print("Enter description: ");
-        String description = input.nextLine();
-
-        System.out.print("Enter return policy: ");
-        String returnPolicy = input.nextLine();
-
-        System.out.print("Enter size: ");
-        String size = input.nextLine();
-
-        System.out.print("Enter gender: ");
-        String gender = input.nextLine();
-
-        System.out.print("Enter color: ");
-        String color = input.nextLine();
-
-        System.out.print("Enter material: ");
-        String material = input.nextLine();
-
-        System.out.print("Enter shoe type (i.e. sneakers, boots): ");
-        String shoeType = input.nextLine();
-
-
-        Shoe newShoe = new Shoe(itemName, brand, price, quantity, description, returnPolicy, size, gender, color, material, shoeType);
-
-        return newShoe;
-    }
-
-    /**
-     * create/add a new shirt
-     *
-     * @return a new shirt
-     */
-    public static Shirt createShirt() {
-        Scanner input = new Scanner(System.in);
-        System.out.println("\n--- Create Shirt ---");
-
-        System.out.print("Enter item name: ");
-        String itemName = input.nextLine();
-
-        System.out.print("Enter brand: ");
-        String brand = input.nextLine();
-
-        System.out.print("Enter price: ");
-        double price = input.nextDouble();
-
-        System.out.print("Enter quantity: ");
-        int quantity = input.nextInt();
-        input.nextLine();
-
-        System.out.print("Enter description: ");
-        String description = input.nextLine();
-
-        System.out.print("Enter return policy: ");
-        String returnPolicy = input.nextLine();
-
-        System.out.print("Enter size: ");
-        String size = input.nextLine();
-
-        System.out.print("Enter gender: ");
-        String gender = input.nextLine();
-
-        System.out.print("Enter color: ");
-        String color = input.nextLine();
-
-        System.out.print("Enter material: ");
-        String material = input.nextLine();
-
-        System.out.print("Enter graphic design: ");
-        String graphicDesign = input.nextLine();
-
-        Shirt newShirt = new Shirt(itemName, brand, price, quantity, description, returnPolicy, size, gender, color, material, graphicDesign);
-        return newShirt;
-    }
-
-    /**
-     * to add/create new laptop.
-     *
-     * @return new laptop
-     */
-    public static Laptop createLaptop() {
-
-        Scanner input = new Scanner(System.in);
-        System.out.println("\n--- Create Laptop ---");
-
-        System.out.print("Enter item name: ");
-        String itemName = input.nextLine();
-
-        System.out.print("Enter brand: ");
-        String brand = input.nextLine();
-
-        System.out.print("Enter price: ");
-        double price = input.nextDouble();
-
-        System.out.print("Enter quantity: ");
-        int quantity = input.nextInt();
-        input.nextLine();
-
-        System.out.print("Enter description: ");
-        String description = input.nextLine();
-
-        System.out.print("Enter return policy: ");
-        String returnPolicy = input.nextLine();
-
-        System.out.print("Enter model number: ");
-        String modelNumber = input.nextLine();
-
-        System.out.print("Enter warranty period : ");
-        int warrantyPeriod = input.nextInt();
-
-        System.out.print("Enter the year released: "); // end of inheritance from electronics
-        int yearReleased = input.nextInt();
-
-        System.out.print("Enter screensize");
-        double screenSize = input.nextDouble();
-
-        System.out.print("Enter the operating system: ");
-        String operatingSystem = input.nextLine();
-
-        Laptop newLaptop = new Laptop(itemName, brand, price, quantity, description, returnPolicy, modelNumber, warrantyPeriod, yearReleased, screenSize, operatingSystem);
-        return newLaptop;
-    }
-
-    /**
-     * create/add new phone
-     *
-     * @return new phone
-     */
-    public static Phone createPhone() {
-
-        Scanner input = new Scanner(System.in);
-        System.out.println("\n--- Create Phone ---");
-
-        System.out.print("Enter item name: ");
-        String itemName = input.nextLine();
-
-        System.out.print("Enter brand: ");
-        String brand = input.nextLine();
-
-        System.out.print("Enter price: ");
-        double price = input.nextDouble();
-
-        System.out.print("Enter quantity: ");
-        int quantity = input.nextInt();
-        input.nextLine();
-
-        System.out.print("Enter description: ");
-        String description = input.nextLine();
-
-        System.out.print("Enter return policy: ");
-        String returnPolicy = input.nextLine();
-
-        System.out.print("Enter model number: ");
-        String modelNumber = input.nextLine();
-
-        System.out.print("Enter warranty period : ");
-        int warrantyPeriod = input.nextInt();
-
-        System.out.print("Enter the year released: "); // end of inheritance from electronics
-        int yearReleased = input.nextInt();
-
-        System.out.print("Enter the phone type (i.e. Apple/Samsung): ");
-        String phoneType = input.nextLine();
-
-        Phone newPhone = new Phone(itemName, brand, price, quantity, description, returnPolicy, modelNumber, warrantyPeriod, yearReleased, phoneType);
-        return newPhone;
-    }
-
-    /**
-     * create/add new tv
-     * @return new tv
-     */
-    public static TV createTV() {
-
-        Scanner input = new Scanner(System.in);
-        System.out.println("\n--- Create TV ---");
-
-        System.out.print("Enter item name: ");
-        String itemName = input.nextLine();
-
-        System.out.print("Enter brand: ");
-        String brand = input.nextLine();
-
-        System.out.print("Enter price: ");
-        double price = input.nextDouble();
-
-        System.out.print("Enter quantity: ");
-        int quantity = input.nextInt();
-        input.nextLine();
-
-        System.out.print("Enter description: ");
-        String description = input.nextLine();
-
-        System.out.print("Enter return policy: ");
-        String returnPolicy = input.nextLine(); // end of inheritance from storeItem
-
-        System.out.print("Enter model number: ");
-        String modelNumber = input.nextLine();
-
-        System.out.print("Enter warranty period : ");
-        int warrantyPeriod = input.nextInt();
-
-        System.out.print("Enter the year released: "); // end of inheritance from electronics
-        int yearReleased = input.nextInt();
-
-        System.out.print("Enter TV type (i.e. flatscreen, CRT : ");
-        String tvType = input.nextLine();
-
-        System.out.print("Enter TV Resolution (i.e. 1920x1080) : ");
-        String tvResolution = input.nextLine();
-
-        TV newTV = new TV( itemName,  brand,  price,  quantity,  description,  returnPolicy,  modelNumber,  warrantyPeriod,  yearReleased, tvType,  tvResolution);
-        return newTV;
-    }
-
-    /**
-     * to create/add shelfstable to store's inventory
-     * @return a new instance of ShelfStable item
-     */
-    public static ShelfStable createShelfStable(){
-        Scanner input = new Scanner(System.in);
-        System.out.println("\n--- Create Shelf Stable Item ---");
-
-        System.out.print("Enter item name: ");
-        String itemName = input.nextLine();
-
-        System.out.print("Enter brand: ");
-        String brand = input.nextLine();
-
-        System.out.print("Enter price: ");
-        double price = input.nextDouble();
-
-        System.out.print("Enter quantity: ");
-        int quantity = input.nextInt();
-        input.nextLine();
-
-        System.out.print("Enter description: ");
-        String description = input.nextLine();
-
-        System.out.print("Enter return policy: ");
-        String returnPolicy = input.nextLine(); // end of inheritance from storeItem
-
-        System.out.print("Enter the expiration date: ");
-        String expirationDate = input.nextLine(); // end of inheritance from Fooditem
-
-        System.out.print("Enter if this item is canned (true/false)");
-        boolean isCanned = input.nextBoolean();
-
-        ShelfStable newShelfStable = new ShelfStable( itemName,  brand,  price,  quantity,  description,  returnPolicy,  expirationDate, isCanned);
-        return newShelfStable;
-    }
-
-    /**
-     * to add/create new fruit to inventory
-     * @return newFruit
-     */
-    public static Fruit createFruit(){
-        Scanner input = new Scanner(System.in);
-        System.out.println("\n--- Create a fruit ---");
-
-        System.out.print("Enter item name: ");
-        String itemName = input.nextLine();
-
-        System.out.print("Enter brand: ");
-        String brand = input.nextLine();
-
-        System.out.print("Enter price: ");
-        double price = input.nextDouble();
-
-        System.out.print("Enter quantity: ");
-        int quantity = input.nextInt();
-        input.nextLine();
-
-        System.out.print("Enter description: ");
-        String description = input.nextLine();
-
-        System.out.print("Enter return policy: ");
-        String returnPolicy = input.nextLine(); // end of inheritance from storeItem
-
-        System.out.print("Enter the expiration date: ");
-        String expirationDate = input.nextLine(); // end of inheritance from Fooditem
-
-        System.out.print("Enter the color of the fruit: ");
-        String color = input.nextLine();
-
-        System.out.print("Enter in if the fruit is organic (true/false): ");
-        Boolean organic = input.nextBoolean();
-
-        System.out.print("Enter the weight of the fruit: ");
-        double weight = input.nextDouble();
-
-        System.out.print("Enter the fruit type: ");
-        String fruitType = input.nextLine();
-
-        Fruit newFruit = new Fruit( itemName,  brand,  price,  quantity,  description,  returnPolicy,  expirationDate,  color,  organic,  weight ,fruitType);
-        return newFruit;
-
-    }
-
-    /**
-     * create add new instance of vegetable to store inv.
-     * @return
-     */
-    public static Vegetable createVegetable(){
-        Scanner input = new Scanner(System.in);
-        System.out.println("\n--- Create a vegetable ---");
-
-        System.out.print("Enter item name: ");
-        String itemName = input.nextLine();
-
-        System.out.print("Enter brand: ");
-        String brand = input.nextLine();
-
-        System.out.print("Enter price: ");
-        double price = input.nextDouble();
-
-        System.out.print("Enter quantity: ");
-        int quantity = input.nextInt();
-        input.nextLine();
-
-        System.out.print("Enter description: ");
-        String description = input.nextLine();
-
-        System.out.print("Enter return policy: ");
-        String returnPolicy = input.nextLine(); // end of inheritance from storeItem
-
-        System.out.print("Enter the expiration date: ");
-        String expirationDate = input.nextLine();
-
-        System.out.print("Enter the color of the fruit: ");
-        String color = input.nextLine();
-
-        System.out.print("Enter in if the fruit is organic (true/false): ");
-        Boolean organic = input.nextBoolean();
-
-        System.out.print("Enter the weight of the fruit: ");
-        double weight = input.nextDouble();
-
-        System.out.print("Enter if it is a root vegetable (true/false): ");
-        boolean rootVegetable = input.nextBoolean();
-
-        Vegetable newVegetable = new Vegetable( itemName,  brand,  price,  quantity,  description,  returnPolicy,  expirationDate,  color,  organic,  weight,  rootVegetable);
-        return newVegetable;
-    }
-
-    /**
-     * create/add new instance of furniture to inv.
-     * @return new piece of furniture
-     */
-    public static Furniture createFurniture(){
-        Scanner input = new Scanner(System.in);
-        System.out.println("\n--- Create a piece of furniture ---");
-
-        System.out.print("Enter item name: ");
-        String itemName = input.nextLine();
-
-        System.out.print("Enter brand: ");
-        String brand = input.nextLine();
-
-        System.out.print("Enter price: ");
-        double price = input.nextDouble();
-
-        System.out.print("Enter quantity: ");
-        int quantity = input.nextInt();
-        input.nextLine();
-
-        System.out.print("Enter description: ");
-        String description = input.nextLine();
-
-        System.out.print("Enter return policy: ");
-        String returnPolicy = input.nextLine(); // end of inheritance from storeItem
-
-        System.out.print("Enter if it's room specific (true/false): ");
-        boolean isRoomSpecific = input.nextBoolean();
-
-        System.out.print("Enter the material type: ");
-        String materialType = input.nextLine();
-
-        System.out.print("Enter if it requires assembly (true/false): ");
-        boolean requiresAssembly = input.nextBoolean();
-
-        System.out.print("Enter if it is suitable for outdoors(true/false): ");
-        boolean outdoorSuitable = input.nextBoolean();
-
-        Furniture newFurniture = new Furniture( itemName,  brand,  price,  quantity,  description,  returnPolicy,  isRoomSpecific, materialType,  requiresAssembly,  outdoorSuitable);
-        return newFurniture;
-    }
-    /**
-     * create/add new instance of cleaning supplies to inv.
-     * @return new cleaning supply
-     */
-    public static CleaningSupply createCleaningSupply(){
-        Scanner input = new Scanner(System.in);
-        System.out.println("\n--- Create an item of cleaning supplies ---");
-
-        System.out.print("Enter item name: ");
-        String itemName = input.nextLine();
-
-        System.out.print("Enter brand: ");
-        String brand = input.nextLine();
-
-        System.out.print("Enter price: ");
-        double price = input.nextDouble();
-
-        System.out.print("Enter quantity: ");
-        int quantity = input.nextInt();
-        input.nextLine();
-
-        System.out.print("Enter description: ");
-        String description = input.nextLine();
-
-        System.out.print("Enter return policy: ");
-        String returnPolicy = input.nextLine(); // end of inheritance from storeItem
-
-        System.out.print("Enter if it's room specific (true/false): ");
-        boolean isRoomSpecific = input.nextBoolean();
-
-        System.out.print("Enter the scent of the product:");
-        String scent = input.nextLine();
-
-        System.out.print("Enter the surface type the product is used for: ");
-        String surfaceType = input.nextLine();
-
-        CleaningSupply newCleaningSupply = new CleaningSupply( itemName,  brand,  price,  quantity,  description,  returnPolicy,  isRoomSpecific, scent,  surfaceType);
-        return  newCleaningSupply;
-    }
-
 }
 

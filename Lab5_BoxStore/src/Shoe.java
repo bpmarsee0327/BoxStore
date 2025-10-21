@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class Shoe extends ClothingItem{
     /**
      *
@@ -50,5 +52,54 @@ public class Shoe extends ClothingItem{
      * setting lace
      * @param laced
      */
+    //other
+    /**
+     * to create/add a new shoe
+     *
+     * @return a new shoe
+     */
+    public static Shoe createItem() {
+        Scanner input = new Scanner(System.in);
+        System.out.println("\n--- Create Shoe ---");
+
+        System.out.print("Enter item name: ");
+        String itemName = input.nextLine();
+
+        System.out.print("Enter brand: ");
+        String brand = input.nextLine();
+
+        System.out.print("Enter price: ");
+        double price = input.nextDouble();
+
+        System.out.print("Enter quantity: ");
+        int quantity = input.nextInt();
+        input.nextLine();
+
+        System.out.print("Enter description: ");
+        String description = input.nextLine();
+
+        System.out.print("Enter return policy: ");
+        String returnPolicy = input.nextLine();
+
+        System.out.print("Enter size: ");
+        String size = input.nextLine();
+
+        System.out.print("Enter gender: ");
+        String gender = input.nextLine();
+
+        System.out.print("Enter color: ");
+        String color = input.nextLine();
+
+        System.out.print("Enter material: ");
+        String material = input.nextLine();
+
+        System.out.print("Enter shoe type (i.e. sneakers, boots): ");
+        String shoeType = input.nextLine();
+
+
+        Shoe newShoe = new Shoe(itemName, brand, price, quantity, description, returnPolicy, size, gender, color, material, shoeType);
+
+        return newShoe;
+    }
 
 }
