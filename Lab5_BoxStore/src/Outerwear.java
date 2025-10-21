@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class Outerwear extends ClothingItem{
     private String outerwearType;
     /**
@@ -34,6 +36,54 @@ public class Outerwear extends ClothingItem{
      */
     public void setOuterwearType(String outerwearType){
         this.outerwearType = outerwearType;
+    }
+    //other
+    /**
+     * to create/add new outerwear
+     *
+     * @return new outerwear
+     */
+    public static Outerwear createItem() {
+        Scanner input = new Scanner(System.in);
+
+        System.out.println("\n--- Create Outerwear ---");
+
+        System.out.print("Enter item name: ");
+        String itemName = input.nextLine();
+
+        System.out.print("Enter brand: ");
+        String brand = input.nextLine();
+
+        System.out.print("Enter price: ");
+        double price = input.nextDouble();
+
+        System.out.print("Enter quantity: ");
+        int quantity = input.nextInt();
+        input.nextLine();
+
+        System.out.print("Enter description: ");
+        String description = input.nextLine();
+
+        System.out.print("Enter return policy: ");
+        String returnPolicy = input.nextLine();
+
+        System.out.print("Enter size: ");
+        String size = input.nextLine();
+
+        System.out.print("Enter gender: ");
+        String gender = input.nextLine();
+
+        System.out.print("Enter color: ");
+        String color = input.nextLine();
+
+        System.out.print("Enter material: ");
+        String material = input.nextLine();
+
+        System.out.print("Enter outerwear type (i.e., Jacket, Coat, Hoodie): ");
+        String outerwearType = input.nextLine();
+
+        Outerwear newOuterwear = new Outerwear(itemName, brand, price, quantity, description, returnPolicy, size, gender, color, material,outerwearType);
+        return newOuterwear;
     }
 
 }

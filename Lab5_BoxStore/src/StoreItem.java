@@ -1,5 +1,7 @@
 import java.math.BigDecimal;
 import java.math.RoundingMode;
+import java.util.Scanner;
+
 public class StoreItem {
 
     // VARIABLES
@@ -144,5 +146,36 @@ public class StoreItem {
     @Override
     public String toString() {
         return String.format("%s(%s) : $%.2f : Quantity x %d", itemName, brand, price, quantity);
+    }
+
+    /**
+     * to create instance of storeItem
+     * @return new store item
+     */
+    public static StoreItem createItem() {
+        Scanner input = new Scanner(System.in);
+        System.out.println("\n--- Create an item of cleaning supplies ---");
+
+        System.out.print("Enter item name: ");
+        String itemName = input.nextLine();
+
+        System.out.print("Enter brand: ");
+        String brand = input.nextLine();
+
+        System.out.print("Enter price: ");
+        double price = input.nextDouble();
+
+        System.out.print("Enter quantity: ");
+        int quantity = input.nextInt();
+        input.nextLine();
+
+        System.out.print("Enter description: ");
+        String description = input.nextLine();
+
+        System.out.print("Enter return policy: ");
+        String returnPolicy = input.nextLine(); // end of inheritance from storeItem
+
+        StoreItem newStoreItem = new StoreItem(itemName, brand, price, quantity, description, returnPolicy);
+        return newStoreItem;
     }
 }

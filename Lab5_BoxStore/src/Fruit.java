@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class Fruit extends FoodItem{
 
     // VARIABLES
@@ -16,5 +18,52 @@ public class Fruit extends FoodItem{
     // Setters
     public void setFruitType(String fruitType){
         this.fruitType = fruitType;
+    }
+    //other
+    /**
+     * to add/create new fruit to inventory
+     * @return newFruit
+     */
+    public static Fruit createItem(){
+        Scanner input = new Scanner(System.in);
+        System.out.println("\n--- Create a fruit ---");
+
+        System.out.print("Enter item name: ");
+        String itemName = input.nextLine();
+
+        System.out.print("Enter brand: ");
+        String brand = input.nextLine();
+
+        System.out.print("Enter price: ");
+        double price = input.nextDouble();
+
+        System.out.print("Enter quantity: ");
+        int quantity = input.nextInt();
+        input.nextLine();
+
+        System.out.print("Enter description: ");
+        String description = input.nextLine();
+
+        System.out.print("Enter return policy: ");
+        String returnPolicy = input.nextLine(); // end of inheritance from storeItem
+
+        System.out.print("Enter the expiration date: ");
+        String expirationDate = input.nextLine(); // end of inheritance from Fooditem
+
+        System.out.print("Enter the color of the fruit: ");
+        String color = input.nextLine();
+
+        System.out.print("Enter in if the fruit is organic (true/false): ");
+        Boolean organic = input.nextBoolean();
+
+        System.out.print("Enter the weight of the fruit: ");
+        double weight = input.nextDouble();
+
+        System.out.print("Enter the fruit type: ");
+        String fruitType = input.nextLine();
+
+        Fruit newFruit = new Fruit( itemName,  brand,  price,  quantity,  description,  returnPolicy,  expirationDate,  color,  organic,  weight ,fruitType);
+        return newFruit;
+
     }
 }
