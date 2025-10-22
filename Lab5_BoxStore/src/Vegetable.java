@@ -72,4 +72,15 @@ public class Vegetable extends FoodItem{
         Vegetable newVegetable = new Vegetable( itemName,  brand,  price,  quantity,  description,  returnPolicy,  expirationDate,  color,  organic,  weight,  rootVegetable);
         return newVegetable;
     }
+
+    /**
+     * clones instance of vegetable
+     * @return clone of item
+     */
+    @Override
+    public Vegetable clone() {
+        Vegetable copy = new Vegetable(this.getItemName(), this.getBrand(),this.getPrice(),this.getQuantity(),this.getDescription(),this.getReturnPolicy(),this.getExpirationDate(),
+                this.getColor(),this.getOrganic(),this.getWeight(),this.getRootVegetable());
+        return copy;
+    }
 }

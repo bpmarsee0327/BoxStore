@@ -178,4 +178,13 @@ public class StoreItem {
         StoreItem newStoreItem = new StoreItem(itemName, brand, price, quantity, description, returnPolicy);
         return newStoreItem;
     }
+    /**
+     * clones instance of store item
+     * @return clone of item
+     */
+    @Override
+    public StoreItem clone() {
+        StoreItem copy = new StoreItem(this.itemName, this.brand, this.price, this.quantity, this.description, this.returnPolicy);
+        return copy;
+    }
 }

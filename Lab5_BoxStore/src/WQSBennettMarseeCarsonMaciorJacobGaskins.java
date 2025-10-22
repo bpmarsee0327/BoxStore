@@ -230,7 +230,6 @@ public class WQSBennettMarseeCarsonMaciorJacobGaskins {
                 if (subchoice == 3) {
                     storeInventory.add(Vegetable.createItem());
                 }
-
             }
             if (classSelection.equals("Household")) {
                 Scanner subclass = new Scanner(System.in);
@@ -247,7 +246,6 @@ public class WQSBennettMarseeCarsonMaciorJacobGaskins {
             }
         }
     }
-
     /**
      * To display the store's inventory
      *
@@ -260,5 +258,9 @@ public class WQSBennettMarseeCarsonMaciorJacobGaskins {
             System.out.println(item);
         }
     }
+    public static void transferItem(StoreItem item, ArrayList<StoreItem> destination) {
+        destination.add(item);
+    }
+
 }
 

@@ -107,4 +107,14 @@ public class TV extends ElectronicsItem {
 
         return newTV;
     }
+    /**
+     * clones instance of TV
+     * @return clone of item
+     */
+    @Override
+    public TV clone() {
+        TV copy = new TV(this.getItemName(), this.getBrand(),this.getPrice(),this.getQuantity(),this.getDescription(),this.getReturnPolicy(),this.getModelNumber(),this.getWarrantyPeriod(),
+                this.getYearReleased(), this.getTVType(),this.getTVResolution());
+        return copy;
+    }
 }

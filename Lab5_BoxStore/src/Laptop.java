@@ -105,5 +105,15 @@ public class Laptop extends ElectronicsItem{
         Laptop newLaptop = new Laptop(itemName, brand, price, quantity, description, returnPolicy, modelNumber, warrantyPeriod, yearReleased, screenSize, operatingSystem);
         return newLaptop;
     }
+    /**
+     * clones instance of laptop
+     * @return clone of item
+     */
+    @Override
+    public Laptop clone() {
+        Laptop copy = new Laptop(this.getItemName(), this.getBrand(), this.getPrice(), this.getQuantity(), this.getDescription(),
+                this.getReturnPolicy(), this.getModelNumber(),this.getWarrantyPeriod(),this.getYearReleased(),this.getScreenSize(),this.getOperatingSystem());
+        return copy;
+    }
 }
 

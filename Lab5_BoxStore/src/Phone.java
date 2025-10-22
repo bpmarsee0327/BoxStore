@@ -86,4 +86,14 @@ public class Phone extends ElectronicsItem{
         Phone newPhone = new Phone(itemName, brand, price, quantity, description, returnPolicy, modelNumber, warrantyPeriod, yearReleased, phoneType);
         return newPhone;
     }
+    /**
+     * clones instance of phone
+     * @return clone of item
+     */
+    @Override
+    public Phone clone() {
+        Phone copy = new Phone(this.getItemName(), this.getBrand(), this.getPrice(), this.getQuantity(), this.getDescription(),
+                this.getReturnPolicy(), this.getModelNumber(), this.getWarrantyPeriod(),this.getYearReleased(),this.getPhoneType());
+        return copy;
+    }
 }

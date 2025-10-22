@@ -83,4 +83,14 @@ public class Shirt extends ClothingItem {
         Shirt newShirt = new Shirt(itemName, brand, price, quantity, description, returnPolicy, size, gender, color, material, graphicDesign);
         return newShirt;
     }
+    /**
+     * clones instance of shirt
+     * @return clone of item
+     */
+    @Override
+    public Shirt clone() {
+        Shirt copy = new Shirt(this.getItemName(), this.getBrand(), this.getPrice(), this.getQuantity(), this.getDescription(),
+                this.getReturnPolicy(), this.getSize(),this.getGender(),this.getColor(),this.getMaterial(),this.getGraphicDesign());
+        return copy;
+    }
 }

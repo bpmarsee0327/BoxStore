@@ -93,4 +93,14 @@ public class CleaningSupply extends HouseholdItem{
         CleaningSupply newCleaningSupply = new CleaningSupply( itemName,  brand,  price,  quantity,  description,  returnPolicy,  isRoomSpecific, scent,  surfaceType);
         return  newCleaningSupply;
     }
+    /**
+     * clones instance of cleaningsupply
+     * @return clone of item
+     */
+    @Override
+    public CleaningSupply clone() {
+        CleaningSupply copy = new CleaningSupply(this.getItemName(), this.getBrand(), this.getPrice(), this.getQuantity(), this.getDescription(), this.getReturnPolicy(), this.getIsRoomSpecific(), this.getScent(), this.getSurfaceType());
+        return copy;
+    }
+
 }

@@ -98,5 +98,15 @@ public class Shoe extends ClothingItem {
 
         return newShoe;
     }
+    /**
+     * clones instance of shoe
+     * @return clone of item
+     */
+    @Override
+    public Shoe clone() {
+        Shoe copy = new Shoe(this.getItemName(), this.getBrand(), this.getPrice(), this.getQuantity(), this.getDescription(),
+                this.getReturnPolicy(), this.getSize(),this.getGender(),this.getColor(),this.getMaterial(),this.shoeType);
+        return copy;
+    }
 }
 

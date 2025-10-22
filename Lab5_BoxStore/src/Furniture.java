@@ -119,5 +119,15 @@ public class Furniture extends HouseholdItem {
         Furniture newFurniture = new Furniture( itemName,  brand,  price,  quantity,  description,  returnPolicy,  isRoomSpecific, materialType,  requiresAssembly,  outdoorSuitable);
         return newFurniture;
     }
+    /**
+     * clones instance of furniture
+     * @return clone of item
+     */
+    @Override
+    public Furniture clone() {
+        Furniture copy = new Furniture(this.getItemName(), this.getBrand(), this.getPrice(), this.getQuantity(), this.getDescription(),
+                this.getReturnPolicy(), this.getIsRoomSpecific(),this.getMaterialType(),this.getIsRequiresAssembly(),this.getOutdoorSuitable());
+        return copy;
+    }
 }
 

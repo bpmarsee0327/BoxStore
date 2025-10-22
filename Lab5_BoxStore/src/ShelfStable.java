@@ -74,6 +74,16 @@ public class ShelfStable extends FoodItem{
         ShelfStable newShelfStable = new ShelfStable( itemName,  brand,  price,  quantity,  description,  returnPolicy,  expirationDate, isCanned);
         return newShelfStable;
     }
+    /**
+     * clones instance of shirt
+     * @return clone of item
+     */
+    @Override
+    public ShelfStable clone() {
+        ShelfStable copy = new ShelfStable(this.getItemName(), this.getBrand(), this.getPrice(), this.getQuantity(), this.getDescription(),
+                this.getReturnPolicy(), this.getExpirationDate(),this.getIsCanned());
+        return copy;
+    }
 
 }
 

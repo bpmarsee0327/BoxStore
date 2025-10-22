@@ -85,5 +85,15 @@ public class Outerwear extends ClothingItem{
         Outerwear newOuterwear = new Outerwear(itemName, brand, price, quantity, description, returnPolicy, size, gender, color, material,outerwearType);
         return newOuterwear;
     }
+    /**
+     * clones instance of outerwear
+     * @return clone of item
+     */
+    @Override
+    public Outerwear clone() {
+        Outerwear copy = new Outerwear(this.getItemName(), this.getBrand(), this.getPrice(), this.getQuantity(), this.getDescription(),
+                this.getReturnPolicy(), this.getSize(),this.getGender(),this.getColor(),this.getMaterial(),this.getOuterwearType());
+        return copy;
+    }
 
 }

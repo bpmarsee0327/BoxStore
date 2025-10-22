@@ -66,4 +66,14 @@ public class Fruit extends FoodItem{
         return newFruit;
 
     }
+    /**
+     * clones instance of fruit
+     * @return clone of item
+     */
+    @Override
+    public Fruit clone() {
+        Fruit copy = new Fruit(this.getItemName(), this.getBrand(), this.getPrice(), this.getQuantity(), this.getDescription(),
+                this.getReturnPolicy(), this.getExpirationDate(),this.getColor(),this.getOrganic(),this.getWeight(),this.fruitType);
+        return copy;
+    }
 }
