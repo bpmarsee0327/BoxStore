@@ -29,7 +29,7 @@ public class Furniture extends HouseholdItem {
     //Getters
 
     /**
-     *
+     * get the material type
      * @return String materialType
      */
     public String getMaterialType() {
@@ -37,7 +37,7 @@ public class Furniture extends HouseholdItem {
     }
 
     /**
-     *
+     * get whether it requires assembly
      * @return boolean requiresAssembly
      */
     public boolean getIsRequiresAssembly() {
@@ -45,7 +45,7 @@ public class Furniture extends HouseholdItem {
     }
 
     /**
-     *
+     *get whether it's outdoor suitable
      * @return String getOutdoorSuitable
      */
     public boolean getOutdoorSuitable() {
@@ -54,24 +54,24 @@ public class Furniture extends HouseholdItem {
     //Setters
 
     /**
-     *
-     * @param materialType
+     * set material type
+     * @param materialType material type
      */
     public void setMaterialType(String materialType) {
         this.materialType = materialType;
     }
 
     /**
-     *
-     * @param requiresAssembly
+     * sets if it requires assembly
+     * @param requiresAssembly requires assembly
      */
     public void setRequiresAssembly(boolean requiresAssembly) {
         this.requiresAssembly = requiresAssembly;
     }
 
     /**
-     *
-     * @param outdoorSuitable
+     * set if outdoor suitable
+     * @param outdoorSuitable outdoor suitable
      */
     public void setOutdoorSuitable(boolean outdoorSuitable) {
         this.outdoorSuitable = outdoorSuitable;

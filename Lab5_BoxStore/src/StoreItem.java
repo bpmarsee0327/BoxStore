@@ -149,7 +149,7 @@ public class StoreItem {
      *
      * @return new store item
      */
-    public static StoreItem createItem() {
+    public static StoreItem createItem() { // this will be polymorphic depending on the item it is casted on when it later iterates throughout the array.
         Scanner input = new Scanner(System.in);
         System.out.println("\n--- Create an item of cleaning supplies ---");
 
@@ -182,7 +182,7 @@ public class StoreItem {
      * @return clone of item
      */
     @Override
-    public StoreItem clone() {
+    public StoreItem clone() { // overwrites default clone but also changes depending on the class type; will be used polymorphically
         StoreItem copy = new StoreItem(this.itemName, this.brand, this.price, this.quantity, this.description, this.returnPolicy);
         return copy;
     }
@@ -191,7 +191,7 @@ public class StoreItem {
      * to get tax rate
      * @return the tax rate
      */
-    public double getTaxRate() {
+    public double getTaxRate() { // will be polymorphic as fooditems will have a differing rate and be inherited in proceeding subclasses
         return 0.0475;
 
     }

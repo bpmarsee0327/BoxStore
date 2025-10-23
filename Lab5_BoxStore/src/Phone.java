@@ -25,7 +25,7 @@ public class Phone extends ElectronicsItem{
 
 
     /**
-     *
+     * gets phonetype
      * @return String getPhoneType
      */
     public String getPhoneType() {
@@ -35,7 +35,7 @@ public class Phone extends ElectronicsItem{
 
 
     /**
-     *
+     *sets the phone type
      * @param phoneType
      */
     public void setPhoneType(String phoneType) {

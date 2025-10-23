@@ -57,13 +57,13 @@ public class Vegetable extends FoodItem{
         System.out.print("Enter the expiration date: ");
         String expirationDate = input.nextLine();
 
-        System.out.print("Enter the color of the fruit: ");
+        System.out.print("Enter the color: ");
         String color = input.nextLine();
 
-        System.out.print("Enter in if the fruit is organic (true/false): ");
+        System.out.print("Enter in if the vegetable is organic (true/false): ");
         Boolean organic = input.nextBoolean();
 
-        System.out.print("Enter the weight of the fruit: ");
+        System.out.print("Enter the weight: ");
         double weight = input.nextDouble();
 
         System.out.print("Enter if it is a root vegetable (true/false): ");

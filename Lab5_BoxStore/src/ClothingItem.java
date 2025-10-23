@@ -31,28 +31,28 @@ public class ClothingItem extends StoreItem {
 
     // GETTERS
     /**
-     *
+     * get the size
      * @return String size
      */
     public String getSize(){
         return size;
     }
     /**
-     *
+     *get the gender of clothing
      * @return String gender
      */
     public String getGender(){
         return gender;
     }
     /**
-     *
+     *get the color
      * @return String color
      */
     public String getColor(){
         return color;
     }
     /**
-     *
+     * get the material
      * @return String material
      */
     public String getMaterial(){
@@ -61,28 +61,28 @@ public class ClothingItem extends StoreItem {
 
     // SETTERS
     /**
-     *
-     * @param size
+     * set the size
+     * @param size size
      */
     public void setSize(String size){
         this.size = size;
     }
     /**
-     *
+     * set the gender
      * @param gender
      */
     public void setGender(String gender){
         this.gender = gender;
     }
     /**
-     *
+     * set the color
      * @param color
      */
     public void setColor(String color){
         this.color = color;
     }
     /**
-     *
+     *set the material
      * @param material
      */
     public void setMaterial(String material){

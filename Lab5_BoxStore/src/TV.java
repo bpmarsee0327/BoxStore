@@ -25,7 +25,7 @@ public class TV extends ElectronicsItem {
     //Getters
 
     /**
-     *
+     *gets the tv type
      * @return String getTVType
      */
     public String getTVType() {
@@ -33,7 +33,7 @@ public class TV extends ElectronicsItem {
     }
 
     /**
-     *
+     *gets the resolution
      * @return String getTVResolution
      */
     public String getTVResolution() {
@@ -42,16 +42,16 @@ public class TV extends ElectronicsItem {
     //Setters
 
     /**
-     *
-     * @param TVType
+     *sets the tv type
+     * @param TVType tv type
      */
     public void setTVType(String TVType) {
         this.tvType = TVType;
     }
 
     /**
-     *
-     * @param TVResolution
+     *sets the resolution
+     * @param TVResolution the resolution
      */
     public void setTVResolution(String TVResolution) {
         this.tvResolution = TVResolution;
@@ -59,7 +59,6 @@ public class TV extends ElectronicsItem {
 
     /**
      * create/add new tv
-     *
      * @return new tv
      */
     public static TV createItem() {

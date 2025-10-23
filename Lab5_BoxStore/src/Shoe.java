@@ -27,7 +27,6 @@ public class Shoe extends ClothingItem {
 
     /**
      * to return the shoe's type
-     *
      * @return the shoe's type
      */
     public String getshoeType() {
@@ -43,7 +42,6 @@ public class Shoe extends ClothingItem {
 
     /**
      * set the shoes type
-     *
      * @param shoeType type of shoe
      */
     public void setshoeType(String shoeType) {

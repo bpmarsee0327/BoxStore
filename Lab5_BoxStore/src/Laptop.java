@@ -27,7 +27,7 @@ public class Laptop extends ElectronicsItem{
     //Getters
 
     /**
-     *
+     * gets screensize
      * @return double getScreenSize
      */
     public double getScreenSize() {
@@ -35,7 +35,7 @@ public class Laptop extends ElectronicsItem{
     }
 
     /**
-     *
+     * gets operating system
      * @return String getOperatingSystem
      */
     public String getOperatingSystem() {
@@ -44,7 +44,7 @@ public class Laptop extends ElectronicsItem{
     //Setters
 
     /**
-     *
+     * sets the screen size
      * @param screenSize
      */
     public void setScreenSize(double screenSize) {
@@ -52,8 +52,8 @@ public class Laptop extends ElectronicsItem{
     }
 
     /**
-     *
-     * @param operatingSystem
+     *sets the OS
+     * @param operatingSystem OS
      */
     public void setOperatingSystem(String operatingSystem) {
         this.operatingSystem = operatingSystem;
@@ -96,7 +96,7 @@ public class Laptop extends ElectronicsItem{
         System.out.print("Enter the year released: "); // end of inheritance from electronics
         int yearReleased = input.nextInt();
 
-        System.out.print("Enter screensize");
+        System.out.print("Enter screensize: ");
         double screenSize = input.nextDouble();
 
         System.out.print("Enter the operating system: ");

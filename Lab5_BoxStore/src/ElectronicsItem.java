@@ -28,21 +28,21 @@ public class ElectronicsItem extends StoreItem{
 
     // GETTERS
     /**
-     *
+     * get the model number
      * @return String modelNumber
      */
     public String getModelNumber(){
         return modelNumber;
     }
     /**
-     *
+     *get the warranty period in days
      * @return int warrantyPeriod
      */
     public int getWarrantyPeriod(){
         return warrantyPeriod;
     }
     /**
-     *
+     * get the year released
      * @return int yearReleased
      */
     public int getYearReleased(){
@@ -51,22 +51,22 @@ public class ElectronicsItem extends StoreItem{
 
     // SETTERS
     /**
-     *
-     * @param modelNumber
+     * set the model number
+     * @param modelNumber model number
      */
     public void setModelNumber(String modelNumber){
         this.modelNumber = modelNumber;
     }
     /**
-     *
-     * @param warrantyPeriod
+     *set the warranty period
+     * @param warrantyPeriod warranty period
      */
     public void setWarrantyPeriod(int warrantyPeriod){
         this.warrantyPeriod = warrantyPeriod;
     }
     /**
-     *
-     * @param yearReleased
+     *set the year released
+     * @param yearReleased year released
      */
     public void setYearReleased(int yearReleased){
         this.yearReleased = yearReleased;

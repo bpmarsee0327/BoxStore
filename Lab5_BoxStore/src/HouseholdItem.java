@@ -21,7 +21,7 @@ public class HouseholdItem extends StoreItem{
 
     // GETTERS
     /**
-     *
+     * get if room specific
      * @return boolean isRoomSpecific
      */
     public boolean getIsRoomSpecific(){
@@ -30,8 +30,8 @@ public class HouseholdItem extends StoreItem{
 
     // SETTERS
     /**
-     *
-     * @param isRoomSpecific
+     * set if it's room specific
+     * @param isRoomSpecific RoomSpecific
      */
     public void setIsRoomSpecific(boolean isRoomSpecific){
         this.isRoomSpecific = isRoomSpecific;

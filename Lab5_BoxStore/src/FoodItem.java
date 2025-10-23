@@ -60,24 +60,23 @@ public class FoodItem extends StoreItem{
     // SETTERS
 
     /**
-     *
-     * @param expirationDate
+     * set expiry date
+     * @param expirationDate the exp date
      */
     public void setExpirationDate(String expirationDate){
         this.expirationDate = expirationDate;
     }
-    // other methods
 
     /**
-     * To calculate price w/ sales tax
-     * @return double price w/ sales tax
+     * set color
+     * @param color the color
      */
     public void setColor (String color){
         this.color = color;
     }
 
     /**
-     *
+     * set organic
      * @param organic boolean
      */
     public void setOrganic(boolean organic){

@@ -1,9 +1,5 @@
 import java.util.Scanner;
-/**
- * @author
- * Section 001
- * Purpose Model store inventory and items and to model the store's transaction types (adding/selling)
- */
+
 public class CleaningSupply extends HouseholdItem{
     private String scent;
     private String surfaceType;
@@ -90,6 +86,7 @@ public class CleaningSupply extends HouseholdItem{
 
         System.out.print("Enter the scent of the product:");
         String scent = input.nextLine();
+        input.nextLine();
 
         System.out.print("Enter the surface type the product is used for: ");
         String surfaceType = input.nextLine();

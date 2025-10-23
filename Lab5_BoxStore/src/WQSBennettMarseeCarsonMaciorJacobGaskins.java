@@ -1,7 +1,11 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
-
+/**
+ * @author Marsee Carson , Carson Macior & Jacob Gaskins
+ * Section 001
+ * Purpose Model store inventory and items and to model the store's transaction types (adding/selling)
+ */
 public class WQSBennettMarseeCarsonMaciorJacobGaskins {
     public static void main(String[] args) {
 
@@ -142,43 +146,74 @@ public class WQSBennettMarseeCarsonMaciorJacobGaskins {
         Scanner input = new Scanner(System.in);
         ArrayList<StoreItem> cart = new ArrayList<>();
 
-
         System.out.println("\n--- Sell Item ---");
-
 
         while (true) {
             displayInventory(storeInventory, "\nStore Inventory:");
 
-
             System.out.print("\nEnter the name of the item to sell (or type 'exit' to finish): ");
             String name = input.nextLine();
-
 
             if (name.equalsIgnoreCase("exit")) {
                 break;
             }
 
-
             boolean found = false;
+
             for (StoreItem item : storeInventory) {
                 if (item.getItemName().equalsIgnoreCase(name)) {
-                    transferItem(item, storeInventory, cart);
                     found = true;
+
+                    if (item.getQuantity() == 0) {
+                        System.out.println("No stock available for " + item.getItemName() + ".");
+                        break;
+                    }
+
+                    // ask for quantity to sell
+                    while (true) {
+
+                        // stop early if no stock left before asking
+                        if (item.getQuantity() == 0) {
+                            System.out.println("No stock available for " + item.getItemName() + ". Returning to main menu.");
+                            break;
+                        }
+
+                        System.out.print("Enter quantity to sell for " + item.getItemName() +
+                                " (Availability: " + item.getQuantity() + "): ");
+                        int quantityToSell = input.nextInt();
+                        input.nextLine();
+
+                        if (quantityToSell <= 0) {
+                            System.out.println("Quantity must be greater than zero.");
+                        }
+                        else if (quantityToSell > item.getQuantity()) {
+                            System.out.println("Not enough stock. Try again.");
+                        }
+                        else {
+                            // Clone & transfer
+                            transferItem(item, storeInventory, cart, quantityToSell);
+                            System.out.println("Added " + quantityToSell + " " + item.getItemName() + "(s) to cart.");
+                            break;
+                        }
+
+                        // exit if the item becomes out of stock
+                        if (item.getQuantity() == 0) {
+                            System.out.println("Item is now out of stock.");
+                            break;
+                        }
+                    }
                     break;
                 }
             }
-
 
             if (!found) {
                 System.out.println("Item not found in store inventory.");
             }
         }
 
-
         displayInventory(cart, "\nItems in Cart:");
         double total = calculateCartTotal(cart);
         System.out.printf("Total price (with tax): $%.2f%n", total);
-
 
         return cart;
     }
@@ -220,7 +255,7 @@ public class WQSBennettMarseeCarsonMaciorJacobGaskins {
 
             for (StoreItem item : storeInventory) {
                 if (item.getItemName().equals(name)) {
-                    found = true; // to prevent accidentally notifying as not present when iterating through the rest of the list
+                    found = true; //prevent accidentally notifying as not present when iterating through the rest of the list
                     System.out.println("Enter how many more of the item you'd like.");
 
 
@@ -309,11 +344,28 @@ public class WQSBennettMarseeCarsonMaciorJacobGaskins {
      * @param message        the message you'd like as a header (i.e. header)
      */
     public static void displayInventory(ArrayList<StoreItem> storeInventory, String message) {
+        if (storeInventory.isEmpty()) {
+            System.out.println("The store inventory is empty.");
+            return;
+        }
+
+        System.out.println("\n------------------------------");
         System.out.println(message);
+        System.out.println("------------------------------");
+
+        System.out.printf("| %-20s | %-10s | %-15s | %-40s | %-40s \n",
+                "Item Name", "Price", "Brand", "Description", "Return Policy");
+
         for (StoreItem item : storeInventory) {
-            System.out.println(item);
+            System.out.printf("| %-20s | %-10.2f | %-15s | %-40s | %-40s\n",
+                    item.getItemName(),
+                    item.getPrice(),
+                    item.getBrand(),
+                    item.getDescription(),
+                    item.getReturnPolicy());
         }
     }
+
 
     /**
      * to transfer items from one array to another. (this case it's from store inv to the customer's cart)
@@ -321,55 +373,36 @@ public class WQSBennettMarseeCarsonMaciorJacobGaskins {
      * @param from sender list
      * @param to receiver list
      */
-    public static void transferItem(StoreItem item, ArrayList<StoreItem> from, ArrayList<StoreItem> to) {
-        Scanner input = new Scanner(System.in);
-        int quantityToTransfer = 0;
-        boolean valid = false;
+    public static void transferItem(StoreItem item, ArrayList<StoreItem> from, ArrayList<StoreItem> to, int quantityToTransfer) {
 
-
-        while (!valid) {
-            System.out.print("Enter quantity to sell for " + item.getItemName() +
-                    " (Available: " + item.getQuantity() + "): ");
-            quantityToTransfer = input.nextInt();
-            input.nextLine();
-
-
-            if (quantityToTransfer <= 0) {
-                System.out.println("Quantity must be greater than zero.");
-            } else if (quantityToTransfer > item.getQuantity()) {
-                System.out.println("Not enough stock. Try again.");
-            } else {
-                valid = true;
-            }
+        // avoids transferring too much
+        if (quantityToTransfer <= 0 || quantityToTransfer > item.getQuantity()) {
+            System.out.println("Not enough quantity for " + item.getItemName() + ".");
+            return;
         }
 
-        item.setQuantity(item.getQuantity() - quantityToTransfer); // set new amt in store inventory
-
-        boolean existsInCart = false; // init false only true if that said item appears in the cart already. assume false as init's empty
-        for (StoreItem cartItem : to) {
-            if (cartItem.getItemName().equalsIgnoreCase(item.getItemName())) {
-                cartItem.setQuantity(cartItem.getQuantity() + quantityToTransfer);
+        // Check if the cart list already has the same item type
+        boolean existsInCart = false;
+        for (StoreItem existingItem : to) {
+            if (existingItem.getItemName().equalsIgnoreCase(item.getItemName())) {
+                // just increase quantity
+                existingItem.setQuantity(existingItem.getQuantity() + quantityToTransfer);
                 existsInCart = true;
                 break;
             }
         }
 
-
-        if (!existsInCart) { // to prevent 2 stacks of the same item. like one pile of soap x 2 and one of soap x5
-            // needed to make a clone feature to HARD copy. needed to avoid accidentally creating a pointer to the same obj.
-            StoreItem clonedItem = new StoreItem(
-                    item.getItemName(),
-                    item.getBrand(),
-                    item.getPrice(),
-                    quantityToTransfer,
-                    item.getDescription(),
-                    item.getReturnPolicy()
-            );
+        if (!existsInCart) {
+            StoreItem clonedItem = item.clone(); // polymorphism to use clone as changes based on type
+            clonedItem.setQuantity(quantityToTransfer);
             to.add(clonedItem);
         }
 
+        item.setQuantity(item.getQuantity() - quantityToTransfer);
 
-        System.out.println("Added " + quantityToTransfer + " of " + item.getItemName() + " to shopping cart.");
+        if (item.getQuantity() <= 0) {
+            from.remove(item);
+        }
     }
 
     /**

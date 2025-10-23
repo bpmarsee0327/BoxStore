@@ -12,10 +12,20 @@ public class Fruit extends FoodItem{
     }
 
     // GETTERS
+
+    /**
+     * to get fruit type
+     * @return fruit type
+     */
     public String getfruitType(){
         return this.fruitType;
     }
     // Setters
+
+    /**
+     * set the fruit type
+     * @param fruitType fruit type
+     */
     public void setFruitType(String fruitType){
         this.fruitType = fruitType;
     }
