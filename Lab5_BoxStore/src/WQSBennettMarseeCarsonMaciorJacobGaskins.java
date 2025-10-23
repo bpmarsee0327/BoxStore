@@ -63,7 +63,7 @@ public class WQSBennettMarseeCarsonMaciorJacobGaskins {
                     addInventory(storeInventory);
                     break;
                 case 2:
-                    sellItem();
+                    sellItem(storeInventory);
                     break;
                 case 3:
                     System.out.println("Exiting");
@@ -124,9 +124,71 @@ public class WQSBennettMarseeCarsonMaciorJacobGaskins {
         }
     }
 
-    public static void sellItem() {
+    /**
+     *
+     * @param storeInventory
+     */
+    public static void sellItem(ArrayList<StoreItem> storeInventory) {
         Scanner input = new Scanner(System.in);
 
+        System.out.println("%nSelect a category to sell from:");
+        System.out.println("1. Food");
+        System.out.println("2. Electronics");
+        System.out.println("3. Clothing");
+        System.out.println("4. Household");
+
+        int choice = input.nextInt();
+        input.nextLine();
+
+        // displaying the items in the chosen category
+        System.out.println("%nAvailable Items:");
+        System.out.printf("%-20s %-10s %-15s %-25s %-10s%n", "Name", "Price", "Brand", "Description", "Qty");
+
+        for (StoreItem item : storeInventory) {
+            boolean match = false;
+
+            if (choice == 1 && item instanceof FoodItem) match = true;
+            else if (choice == 2 && item instanceof ElectronicsItem) match = true;
+            else if (choice == 3 && item instanceof ClothingItem) match = true;
+            else if (choice == 4 && item instanceof HouseholdItem) match = true;
+
+            if (match && item.getQuantity() > 0) {
+                System.out.printf("%-20s $%-9.2f %-15s %-25s %-10d%n",
+                        item.getItemName(), item.getPrice(), item.getBrand(),
+                        item.getDescription(), item.getQuantity());
+            }
+        }
+
+        System.out.println("Enter the name of the item to sell:");
+        String itemName = input.nextLine();
+
+        StoreItem selectedItem = null;
+        for (StoreItem item : storeInventory) {
+            if (item.getItemName().equals(itemName)) {
+                selectedItem = item;
+                break;
+            }
+        }
+
+        // item isnt found
+        if (selectedItem == null) {
+            return;
+        }
+
+        System.out.printf("Enter amount to sell (current quantity: %d): ", selectedItem.getQuantity());
+        int quantity = input.nextInt();
+        input.nextLine();
+
+        // not enough stock
+        if (quantity > selectedItem.getQuantity()) {
+            return;
+        }
+
+        // using the transfer method to transfer the item from inventory to the customer
+        transferItem(selectedItem, storeInventory, new ArrayList<>(), quantity);
+
+        // display the new updated inventory
+        displayInventory(storeInventory, "Updated Store Inventory:");
     }
 
     /**
@@ -259,15 +321,34 @@ public class WQSBennettMarseeCarsonMaciorJacobGaskins {
         }
     }
     public static void transferItem(StoreItem item, ArrayList<StoreItem> from , ArrayList<StoreItem> to, int quantity) {
-        if (from.contains(item)){
-            item.setQuantity(item.getQuantity()-quantity);
-            if (to.contains(item)){
-                item.setQuantity(quantity);
-            }
-            else{
+        // item not found in the inventory
+        if (!from.contains(item)){
+            return;
+        }
 
+        // not enough item quantity to transfer
+        if (quantity > item.getQuantity()){
+            return;
+        }
+
+        item.setQuantity(item.getQuantity() - quantity);
+
+        // need to check if the item is already in the to list so we can just add to it instead of creating another instance
+        boolean inTo = false;
+        for (StoreItem toItem : to){
+            if (toItem.getItemName().equals(item.getItemName())){
+                toItem.setQuantity(toItem.getQuantity() + quantity);
+                inTo = true;
+                break;
             }
         }
+
+        if (!inTo){
+            StoreItem newItem = item.clone();
+            newItem.setQuantity(quantity);
+            to.add(newItem);
+        }
+
     }
 
 }
