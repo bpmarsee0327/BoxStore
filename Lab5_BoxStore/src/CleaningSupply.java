@@ -1,5 +1,9 @@
 import java.util.Scanner;
-
+/**
+ * @author
+ * Section 001
+ * Purpose Model store inventory and items and to model the store's transaction types (adding/selling)
+ */
 public class CleaningSupply extends HouseholdItem{
     private String scent;
     private String surfaceType;

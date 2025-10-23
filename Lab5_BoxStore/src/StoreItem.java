@@ -44,7 +44,7 @@ public class StoreItem {
     }
 
     /**
-     *
+     * retrieve name
      * @return String brand
      */
     public String getBrand() {
@@ -52,7 +52,7 @@ public class StoreItem {
     }
 
     /**
-     *
+     * retrieve brand
      * @return double price
      */
     public double getPrice() {
@@ -60,7 +60,7 @@ public class StoreItem {
     }
 
     /**
-     *
+     * retrieve quantity
      * @return int quantity
      */
     public int getQuantity() {
@@ -68,7 +68,7 @@ public class StoreItem {
     }
 
     /**
-     *
+     *retrieve description
      * @return String description
      */
     public String getDescription() {
@@ -76,7 +76,7 @@ public class StoreItem {
     }
 
     /**
-     *
+     * retrieve return policy
      * @return String returnPolicy
      */
     public String getReturnPolicy() {
@@ -86,7 +86,7 @@ public class StoreItem {
     // SETTERS
 
     /**
-     *
+     * set item's name
      * @param itemName
      */
     public void setItemName(String itemName) {
@@ -94,40 +94,40 @@ public class StoreItem {
     }
 
     /**
-     *
-     * @param brand
+     * set the items name
+     * @param brand item's brand
      */
     public void setBrand(String brand) {
         this.brand = brand;
     }
 
     /**
-     *
-     * @param price
+     *to set the price for 1 of said item
+     * @param price the price for x1 of an item
      */
     public void setPrice(double price) {
         this.price = price;
     }
 
     /**
-     *
-     * @param quantity
+     * set quantity
+     * @param quantity quantity of item
      */
     public void setQuantity(int quantity) {
         this.quantity = quantity;
     }
 
     /**
-     *
-     * @param description
+     * set description
+     * @param description the description
      */
     public void setDescription(String description) {
         this.description = description;
     }
 
     /**
-     *
-     * @param returnPolicy
+     * set return policy
+     * @param returnPolicy return policy
      */
     public void setReturnPolicy(String returnPolicy) {
         this.returnPolicy = returnPolicy;
@@ -135,10 +135,13 @@ public class StoreItem {
 
     //other methods
 
-
+    /**
+     * to get string representation of class
+     * @return the string of class
+     */
     @Override
     public String toString() {
-        return String.format("%s(%s) : $%.2f : Quantity x %d", itemName, brand, price, quantity);
+        return String.format("%s(%s) | $%.2f | Quantity x %d | Return Policy : %s", itemName, brand, price, quantity, returnPolicy);
     }
 
     /**

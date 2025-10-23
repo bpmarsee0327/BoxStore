@@ -82,6 +82,7 @@ public class WQSBennettMarseeCarsonMaciorJacobGaskins {
      * @param storeInventory the inventory
      */
     public static void addInventory(ArrayList<StoreItem> storeInventory) {
+        System.out.println("\n--- Add Item ---");
         Scanner input = new Scanner(System.in);
 
         while (true) {
