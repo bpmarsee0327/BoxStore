@@ -91,11 +91,13 @@ public class FoodItem extends StoreItem{
     public void setWeight(double weight){
         this.weight = weight;
     }
+
+    /**
+     * to get tax rate for item type (food)
+     * @return the rate
+     */
     @Override
-    public double calculatePriceWithTax() {
-        double withTax = getPrice() * 1.02; // 2% tax for food
-        BigDecimal rounded = new BigDecimal(withTax).setScale(2, RoundingMode.HALF_UP);
-         withTax = rounded.doubleValue();
-        return  withTax;
+    public double getTaxRate(){
+        return 0.02;
     }
 }

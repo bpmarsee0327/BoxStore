@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
+
 public class WQSBennettMarseeCarsonMaciorJacobGaskins {
     public static void main(String[] args) {
 
@@ -77,7 +78,8 @@ public class WQSBennettMarseeCarsonMaciorJacobGaskins {
     }
 
     /**
-     * Menu that asks the user if they want to add an item to clothing, electronics, food, or household
+     *Menu that asks the user if they want to add an item to clothing, electronics, food, or household
+     * @param storeInventory the inventory
      */
     public static void addInventory(ArrayList<StoreItem> storeInventory) {
         Scanner input = new Scanner(System.in);
@@ -94,29 +96,35 @@ public class WQSBennettMarseeCarsonMaciorJacobGaskins {
 
             switch (choice) {
                 case 1:
-                    itemsinCategory(storeInventory, ClothingItem.class);
+                    itemsinCategory(storeInventory, ClothingItem.class); // each one of these checks for items under the category in inventory.
                     addtoInventory(storeInventory, ClothingItem.class, "Clothing");
+
 
                     break;
                 case 2:
                     itemsinCategory(storeInventory, ElectronicsItem.class);
                     addtoInventory(storeInventory, ElectronicsItem.class, "Electronics");
 
+
                     break;
                 case 3:
                     itemsinCategory(storeInventory, FoodItem.class);
                     addtoInventory(storeInventory, FoodItem.class, "Food");
+
 
                     break;
                 case 4:
                     itemsinCategory(storeInventory, HouseholdItem.class);
                     addtoInventory(storeInventory, HouseholdItem.class, "Household");
 
+
                     break;
                 case 5:
                     System.out.println("Returning");
 
+
                     return;
+
 
                 default:
                     System.out.println("Invalid input.");
@@ -125,77 +133,60 @@ public class WQSBennettMarseeCarsonMaciorJacobGaskins {
     }
 
     /**
-     *
-     * @param storeInventory
+     * to conduct selling of a store item within inventory
+     * @param storeInventory store inventory
+     * @return the list (cart) of items checked out.
      */
-    public static void sellItem(ArrayList<StoreItem> storeInventory) {
+    public static ArrayList<StoreItem> sellItem(ArrayList<StoreItem> storeInventory) {
         Scanner input = new Scanner(System.in);
+        ArrayList<StoreItem> cart = new ArrayList<>();
 
-        System.out.println("%nSelect a category to sell from:");
-        System.out.println("1. Food");
-        System.out.println("2. Electronics");
-        System.out.println("3. Clothing");
-        System.out.println("4. Household");
 
-        int choice = input.nextInt();
-        input.nextLine();
+        System.out.println("\n--- Sell Item ---");
 
-        // displaying the items in the chosen category
-        System.out.println("%nAvailable Items:");
-        System.out.printf("%-20s %-10s %-15s %-25s %-10s%n", "Name", "Price", "Brand", "Description", "Qty");
 
-        for (StoreItem item : storeInventory) {
-            boolean match = false;
+        while (true) {
+            displayInventory(storeInventory, "\nStore Inventory:");
 
-            if (choice == 1 && item instanceof FoodItem) match = true;
-            else if (choice == 2 && item instanceof ElectronicsItem) match = true;
-            else if (choice == 3 && item instanceof ClothingItem) match = true;
-            else if (choice == 4 && item instanceof HouseholdItem) match = true;
 
-            if (match && item.getQuantity() > 0) {
-                System.out.printf("%-20s $%-9.2f %-15s %-25s %-10d%n",
-                        item.getItemName(), item.getPrice(), item.getBrand(),
-                        item.getDescription(), item.getQuantity());
-            }
-        }
+            System.out.print("\nEnter the name of the item to sell (or type 'exit' to finish): ");
+            String name = input.nextLine();
 
-        System.out.println("Enter the name of the item to sell:");
-        String itemName = input.nextLine();
 
-        StoreItem selectedItem = null;
-        for (StoreItem item : storeInventory) {
-            if (item.getItemName().equals(itemName)) {
-                selectedItem = item;
+            if (name.equalsIgnoreCase("exit")) {
                 break;
             }
+
+
+            boolean found = false;
+            for (StoreItem item : storeInventory) {
+                if (item.getItemName().equalsIgnoreCase(name)) {
+                    transferItem(item, storeInventory, cart);
+                    found = true;
+                    break;
+                }
+            }
+
+
+            if (!found) {
+                System.out.println("Item not found in store inventory.");
+            }
         }
 
-        // item isnt found
-        if (selectedItem == null) {
-            return;
-        }
 
-        System.out.printf("Enter amount to sell (current quantity: %d): ", selectedItem.getQuantity());
-        int quantity = input.nextInt();
-        input.nextLine();
+        displayInventory(cart, "\nItems in Cart:");
+        double total = calculateCartTotal(cart);
+        System.out.printf("Total price (with tax): $%.2f%n", total);
 
-        // not enough stock
-        if (quantity > selectedItem.getQuantity()) {
-            return;
-        }
 
-        // using the transfer method to transfer the item from inventory to the customer
-        transferItem(selectedItem, storeInventory, new ArrayList<>(), quantity);
-
-        // display the new updated inventory
-        displayInventory(storeInventory, "Updated Store Inventory:");
+        return cart;
     }
 
     /**
      * helper for addInventory to display items within selected category.
      *
      * @param storeInventory an array of the store's inventory
-     * @param type           the class type. the category of item being looked for.
+     * @param type the class type. the category of item being looked for.
      */
     public static void itemsinCategory(ArrayList<StoreItem> storeInventory, Class type) {
         for (StoreItem item : storeInventory) {
@@ -225,10 +216,12 @@ public class WQSBennettMarseeCarsonMaciorJacobGaskins {
             String name = input.nextLine();
             boolean found = false;
 
+
             for (StoreItem item : storeInventory) {
                 if (item.getItemName().equals(name)) {
                     found = true; // to prevent accidentally notifying as not present when iterating through the rest of the list
                     System.out.println("Enter how many more of the item you'd like.");
+
 
                     //getting exists quantity through the accessor, adding to amt requested, then reassigning the attribute through mutator.
                     int moreQuantity = input.nextInt();
@@ -320,36 +313,77 @@ public class WQSBennettMarseeCarsonMaciorJacobGaskins {
             System.out.println(item);
         }
     }
-    public static void transferItem(StoreItem item, ArrayList<StoreItem> from , ArrayList<StoreItem> to, int quantity) {
-        // item not found in the inventory
-        if (!from.contains(item)){
-            return;
+
+    /**
+     * to transfer items from one array to another. (this case it's from store inv to the customer's cart)
+     * @param item item to move
+     * @param from sender list
+     * @param to receiver list
+     */
+    public static void transferItem(StoreItem item, ArrayList<StoreItem> from, ArrayList<StoreItem> to) {
+        Scanner input = new Scanner(System.in);
+        int quantityToTransfer = 0;
+        boolean valid = false;
+
+
+        while (!valid) {
+            System.out.print("Enter quantity to sell for " + item.getItemName() +
+                    " (Available: " + item.getQuantity() + "): ");
+            quantityToTransfer = input.nextInt();
+            input.nextLine();
+
+
+            if (quantityToTransfer <= 0) {
+                System.out.println("Quantity must be greater than zero.");
+            } else if (quantityToTransfer > item.getQuantity()) {
+                System.out.println("Not enough stock. Try again.");
+            } else {
+                valid = true;
+            }
         }
 
-        // not enough item quantity to transfer
-        if (quantity > item.getQuantity()){
-            return;
-        }
+        item.setQuantity(item.getQuantity() - quantityToTransfer); // set new amt in store inventory
 
-        item.setQuantity(item.getQuantity() - quantity);
-
-        // need to check if the item is already in the to list so we can just add to it instead of creating another instance
-        boolean inTo = false;
-        for (StoreItem toItem : to){
-            if (toItem.getItemName().equals(item.getItemName())){
-                toItem.setQuantity(toItem.getQuantity() + quantity);
-                inTo = true;
+        boolean existsInCart = false; // init false only true if that said item appears in the cart already. assume false as init's empty
+        for (StoreItem cartItem : to) {
+            if (cartItem.getItemName().equalsIgnoreCase(item.getItemName())) {
+                cartItem.setQuantity(cartItem.getQuantity() + quantityToTransfer);
+                existsInCart = true;
                 break;
             }
         }
 
-        if (!inTo){
-            StoreItem newItem = item.clone();
-            newItem.setQuantity(quantity);
-            to.add(newItem);
+
+        if (!existsInCart) { // to prevent 2 stacks of the same item. like one pile of soap x 2 and one of soap x5
+            // needed to make a clone feature to HARD copy. needed to avoid accidentally creating a pointer to the same obj.
+            StoreItem clonedItem = new StoreItem(
+                    item.getItemName(),
+                    item.getBrand(),
+                    item.getPrice(),
+                    quantityToTransfer,
+                    item.getDescription(),
+                    item.getReturnPolicy()
+            );
+            to.add(clonedItem);
         }
 
+
+        System.out.println("Added " + quantityToTransfer + " of " + item.getItemName() + " to shopping cart.");
     }
 
-}
+    /**
+     * to calculate the total cost of the items checkedout by the customer
+     * @param cart the arraylist of items the cust is buying
+     * @return the total cart cost
+     */
+    public static double calculateCartTotal(ArrayList<StoreItem> cart) {
+        double total = 0.0; // init price
 
+        for (StoreItem item : cart) {
+            double basePrice = item.getPrice() * item.getQuantity();
+            double taxRate = item.getTaxRate(); // will call polymorphically depending on food or general item
+            total += basePrice + (basePrice * taxRate);
+        }
+        return total;
+    }
+}

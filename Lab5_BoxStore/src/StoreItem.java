@@ -13,6 +13,7 @@ public class StoreItem {
     private String returnPolicy;
 
     // CONSTRUCTOR
+
     /**
      *
      * @param itemName
@@ -22,7 +23,7 @@ public class StoreItem {
      * @param description
      * @param returnPolicy
      */
-    public StoreItem(String itemName, String brand, double price, int quantity, String description, String returnPolicy){
+    public StoreItem(String itemName, String brand, double price, int quantity, String description, String returnPolicy) {
         this.itemName = itemName;
         this.brand = brand;
         this.price = price;
@@ -33,6 +34,7 @@ public class StoreItem {
 
 
     // GETTERS
+
     /**
      *
      * @return String itemName
@@ -40,11 +42,12 @@ public class StoreItem {
     public String getItemName() {
         return itemName;
     }
+
     /**
      *
      * @return String brand
      */
-    public String getBrand(){
+    public String getBrand() {
         return brand;
     }
 
@@ -52,7 +55,7 @@ public class StoreItem {
      *
      * @return double price
      */
-    public double getPrice(){
+    public double getPrice() {
         return price;
     }
 
@@ -60,7 +63,7 @@ public class StoreItem {
      *
      * @return int quantity
      */
-    public int getQuantity(){
+    public int getQuantity() {
         return quantity;
     }
 
@@ -68,7 +71,7 @@ public class StoreItem {
      *
      * @return String description
      */
-    public String getDescription(){
+    public String getDescription() {
         return description;
     }
 
@@ -76,7 +79,7 @@ public class StoreItem {
      *
      * @return String returnPolicy
      */
-    public String getReturnPolicy(){
+    public String getReturnPolicy() {
         return returnPolicy;
     }
 
@@ -86,7 +89,7 @@ public class StoreItem {
      *
      * @param itemName
      */
-    public void setItemName(String itemName){
+    public void setItemName(String itemName) {
         this.itemName = itemName;
     }
 
@@ -94,7 +97,7 @@ public class StoreItem {
      *
      * @param brand
      */
-    public void setBrand(String brand){
+    public void setBrand(String brand) {
         this.brand = brand;
     }
 
@@ -102,7 +105,7 @@ public class StoreItem {
      *
      * @param price
      */
-    public void setPrice(double price){
+    public void setPrice(double price) {
         this.price = price;
     }
 
@@ -110,7 +113,7 @@ public class StoreItem {
      *
      * @param quantity
      */
-    public void setQuantity(int quantity){
+    public void setQuantity(int quantity) {
         this.quantity = quantity;
     }
 
@@ -118,7 +121,7 @@ public class StoreItem {
      *
      * @param description
      */
-    public void setDescription(String description){
+    public void setDescription(String description) {
         this.description = description;
     }
 
@@ -126,22 +129,12 @@ public class StoreItem {
      *
      * @param returnPolicy
      */
-    public void setReturnPolicy(String returnPolicy){
+    public void setReturnPolicy(String returnPolicy) {
         this.returnPolicy = returnPolicy;
     }
 
     //other methods
 
-    /**
-     * To calculate taxed price
-     * @return double of the price accounting for tax.
-     */
-    public double calculatePriceWithTax(){
-        double withTax = getPrice() * 1.075; // 7.5% tax
-        BigDecimal rounded = new BigDecimal(withTax).setScale(2, RoundingMode.HALF_UP);
-        withTax = rounded.doubleValue();
-        return  withTax;
-    }
 
     @Override
     public String toString() {
@@ -150,6 +143,7 @@ public class StoreItem {
 
     /**
      * to create instance of storeItem
+     *
      * @return new store item
      */
     public static StoreItem createItem() {
@@ -178,13 +172,24 @@ public class StoreItem {
         StoreItem newStoreItem = new StoreItem(itemName, brand, price, quantity, description, returnPolicy);
         return newStoreItem;
     }
+
     /**
      * clones instance of store item
+     *
      * @return clone of item
      */
     @Override
     public StoreItem clone() {
         StoreItem copy = new StoreItem(this.itemName, this.brand, this.price, this.quantity, this.description, this.returnPolicy);
         return copy;
+    }
+
+    /**
+     * to get tax rate
+     * @return the tax rate
+     */
+    public double getTaxRate() {
+        return 0.0475;
+
     }
 }
