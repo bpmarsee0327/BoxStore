@@ -130,9 +130,6 @@ public class WQSBennettMarseeCarsonMaciorJacobGaskins {
 
                     return;
 
-
-                default:
-                    System.out.println("Invalid input.");
             }
         }
     }
