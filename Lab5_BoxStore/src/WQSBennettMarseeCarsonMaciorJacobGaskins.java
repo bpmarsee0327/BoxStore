@@ -258,8 +258,16 @@ public class WQSBennettMarseeCarsonMaciorJacobGaskins {
             System.out.println(item);
         }
     }
-    public static void transferItem(StoreItem item, ArrayList<StoreItem> destination) {
-        destination.add(item);
+    public static void transferItem(StoreItem item, ArrayList<StoreItem> from , ArrayList<StoreItem> to, int quantity) {
+        if (from.contains(item)){
+            item.setQuantity(item.getQuantity()-quantity);
+            if (to.contains(item)){
+                item.setQuantity(quantity);
+            }
+            else{
+
+            }
+        }
     }
 
 }
